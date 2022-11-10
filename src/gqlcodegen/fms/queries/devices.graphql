@@ -1,0 +1,118 @@
+query listDevices(
+  $search: String!
+  $pagination: PaginationParam!
+  $filterBy: DevicesFilterType!
+  $QCFilter: QCFilterType!
+) {
+  devices {
+    listDevices(
+      param: {
+        search: $search
+        pagination: $pagination
+        filterBy: $filterBy
+        QCFilter: $QCFilter
+      }
+    ) {
+      data {
+        ID
+        active
+        bluetoothName
+        imei
+        sim
+        model
+        status
+        vinNO
+        properties {
+          field
+          value
+        }
+        tags {
+          field
+          value
+        }
+      }
+      pagination {
+        first
+        before
+        current
+        next
+        last
+        perPage
+        totalPage
+        totalRecord
+      }
+      lastUpdate
+    }
+  }
+}
+
+query detailDevices($id: String!) {
+  devices {
+    detailDevices(id: $id) {
+      vehicle {
+        vinNO
+        licensePlate
+        fleetName
+        fleetModels
+        properties {
+          field
+          value
+        }
+      }
+      device {
+        ID
+        sim
+        active
+        bluetoothName
+        imei
+        model
+        status
+        properties {
+          field
+          value
+        }
+        tags {
+          field
+          value
+        }
+      }
+    }
+  }
+}
+
+mutation devicesSingleUpload($in: Upload!) {
+  devices {
+    singleUpload(in: $in) {
+      success
+      name
+    }
+  }
+}
+
+mutation assignDevices($ID: String!, $fleetID: String!) {
+  devices {
+    assignDevices(param: { ID: $ID, fleetID: $fleetID }) {
+      ID
+    }
+  }
+}
+
+mutation deleteDevices($id: String!) {
+  devices {
+    deleteDevices(id: $id) {
+      id
+      success
+      message
+    }
+  }
+}
+
+mutation updateDevices($id: String!, $sim: String!, $bluetoothName: String!) {
+  devices {
+    updateDevice(id: $id, param: { sim: $sim, bluetoothName: $bluetoothName }) {
+      id
+      success
+      message
+    }
+  }
+}

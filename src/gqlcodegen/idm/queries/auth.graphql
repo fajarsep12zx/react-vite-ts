@@ -1,0 +1,78 @@
+query listSSOLink {
+  auth {
+    listSSOLink {
+      links {
+        name
+        link
+      }
+    }
+  }
+}
+
+query listGroup($page: Int!, $searchParam: SearchField!, $limit: Int!) {
+  auth {
+    listGroup: listOrganization(
+      param: {
+        search: { page: $page, search: $searchParam, limit: $limit }
+        isChild: false
+      }
+    ) {
+      listOrganizationResponse {
+        orgID
+        orgCode
+        orgName
+        group: childOrg {
+          ID: orgID
+          code: orgCode
+          name: orgName
+        }
+      }
+      pageInfo {
+        total
+        limit
+        page
+      }
+    }
+  }
+}
+
+query listUser($page: Int!, $searchParam: SearchField!, $limit: Int!) {
+  auth {
+    listUser(param: { page: $page, search: $searchParam, limit: $limit }) {
+      listUserResponse {
+        ID
+        userId
+        name
+        organization {
+          orgID
+          orgName
+        }
+      }
+      pageInfo {
+        total
+        limit
+        page
+      }
+    }
+  }
+}
+
+query listOrganization(
+  $page: Int!
+  $searchParam: SearchField!
+  $limit: Int!
+  $isChild: Boolean!
+) {
+  auth {
+    listOrganization(
+      param: {
+        search: { page: $page, search: $searchParam, limit: $limit }
+        isChild: $isChild
+      }
+    ) {
+      listOrganizationResponse {
+        orgName
+      }
+    }
+  }
+}

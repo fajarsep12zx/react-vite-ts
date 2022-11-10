@@ -1,0 +1,8 @@
+mutation sendCommand($Id: String!, $Type: CommandType!) {
+  commands {
+    sendCommand(param: { Id: $Id, Type: $Type }) {
+      Id
+      Type
+    }
+  }
+}
