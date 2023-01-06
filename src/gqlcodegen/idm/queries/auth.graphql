@@ -12,10 +12,7 @@ query listSSOLink {
 query listGroup($page: Int!, $searchParam: SearchField!, $limit: Int!) {
   auth {
     listGroup: listOrganization(
-      param: {
-        search: { page: $page, search: $searchParam, limit: $limit }
-        isChild: false
-      }
+      param: { search: { page: $page, search: $searchParam, limit: $limit }, isChild: false }
     ) {
       listOrganizationResponse {
         orgID
@@ -57,18 +54,10 @@ query listUser($page: Int!, $searchParam: SearchField!, $limit: Int!) {
   }
 }
 
-query listOrganization(
-  $page: Int!
-  $searchParam: SearchField!
-  $limit: Int!
-  $isChild: Boolean!
-) {
+query listOrganization($page: Int!, $searchParam: SearchField!, $limit: Int!, $isChild: Boolean!) {
   auth {
     listOrganization(
-      param: {
-        search: { page: $page, search: $searchParam, limit: $limit }
-        isChild: $isChild
-      }
+      param: { search: { page: $page, search: $searchParam, limit: $limit }, isChild: $isChild }
     ) {
       listOrganizationResponse {
         orgName

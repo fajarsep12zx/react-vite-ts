@@ -43,10 +43,10 @@ function ReloadPrompt() {
   }
 
   return (
-    <div className='ReloadPrompt-container'>
+    <div className="ReloadPrompt-container">
       {(offlineReady || needRefresh) && (
-        <div className='ReloadPrompt-toast'>
-          <div className='ReloadPrompt-message'>
+        <div className="ReloadPrompt-toast">
+          <div className="ReloadPrompt-message">
             {offlineReady ? (
               <span>App ready to work offline</span>
             ) : (
@@ -54,16 +54,16 @@ function ReloadPrompt() {
             )}
           </div>
           {needRefresh && (
-            <button className='ReloadPrompt-toast-button' onClick={() => updateServiceWorker(true)}>
+            <button className="ReloadPrompt-toast-button" onClick={() => updateServiceWorker(true)}>
               Reload
             </button>
           )}
-          <button className='ReloadPrompt-toast-button' onClick={() => close()}>
+          <button className="ReloadPrompt-toast-button" onClick={() => close()}>
             Close
           </button>
         </div>
       )}
-      <div className='ReloadPrompt-date'>{buildDate}</div>
+      <div className="ReloadPrompt-date">{buildDate}</div>
     </div>
   )
 }

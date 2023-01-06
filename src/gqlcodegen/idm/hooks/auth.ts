@@ -62,9 +62,7 @@ export type ListOrganizationQueryVariables = Types.Exact<{
 export type ListOrganizationQuery = {
   auth: {
     listOrganization: {
-      listOrganizationResponse: Array<
-        Pick<Types.OrganizationResponse, 'orgName'>
-      >
+      listOrganizationResponse: Array<Pick<Types.OrganizationResponse, 'orgName'>>
     }
   }
 }
@@ -98,41 +96,27 @@ export const ListSsoLinkDocument = gql`
  * });
  */
 export function useListSsoLinkQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    ListSsoLinkQuery,
-    ListSsoLinkQueryVariables
-  >
+  baseOptions?: Apollo.QueryHookOptions<ListSsoLinkQuery, ListSsoLinkQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useQuery<ListSsoLinkQuery, ListSsoLinkQueryVariables>(
-    ListSsoLinkDocument,
-    options
-  )
+  return Apollo.useQuery<ListSsoLinkQuery, ListSsoLinkQueryVariables>(ListSsoLinkDocument, options)
 }
 export function useListSsoLinkLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    ListSsoLinkQuery,
-    ListSsoLinkQueryVariables
-  >
+  baseOptions?: Apollo.LazyQueryHookOptions<ListSsoLinkQuery, ListSsoLinkQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
   return Apollo.useLazyQuery<ListSsoLinkQuery, ListSsoLinkQueryVariables>(
     ListSsoLinkDocument,
-    options
+    options,
   )
 }
 export type ListSsoLinkQueryHookResult = ReturnType<typeof useListSsoLinkQuery>
-export type ListSsoLinkLazyQueryHookResult = ReturnType<
-  typeof useListSsoLinkLazyQuery
->
+export type ListSsoLinkLazyQueryHookResult = ReturnType<typeof useListSsoLinkLazyQuery>
 export const ListGroupDocument = gql`
   query listGroup($page: Int!, $searchParam: SearchField!, $limit: Int!) {
     auth {
       listGroup: listOrganization(
-        param: {
-          search: { page: $page, search: $searchParam, limit: $limit }
-          isChild: false
-        }
+        param: { search: { page: $page, search: $searchParam, limit: $limit }, isChild: false }
       ) {
         listOrganizationResponse {
           orgID
@@ -173,30 +157,19 @@ export const ListGroupDocument = gql`
  * });
  */
 export function useListGroupQuery(
-  baseOptions: Apollo.QueryHookOptions<ListGroupQuery, ListGroupQueryVariables>
+  baseOptions: Apollo.QueryHookOptions<ListGroupQuery, ListGroupQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useQuery<ListGroupQuery, ListGroupQueryVariables>(
-    ListGroupDocument,
-    options
-  )
+  return Apollo.useQuery<ListGroupQuery, ListGroupQueryVariables>(ListGroupDocument, options)
 }
 export function useListGroupLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    ListGroupQuery,
-    ListGroupQueryVariables
-  >
+  baseOptions?: Apollo.LazyQueryHookOptions<ListGroupQuery, ListGroupQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useLazyQuery<ListGroupQuery, ListGroupQueryVariables>(
-    ListGroupDocument,
-    options
-  )
+  return Apollo.useLazyQuery<ListGroupQuery, ListGroupQueryVariables>(ListGroupDocument, options)
 }
 export type ListGroupQueryHookResult = ReturnType<typeof useListGroupQuery>
-export type ListGroupLazyQueryHookResult = ReturnType<
-  typeof useListGroupLazyQuery
->
+export type ListGroupLazyQueryHookResult = ReturnType<typeof useListGroupLazyQuery>
 export const ListUserDocument = gql`
   query listUser($page: Int!, $searchParam: SearchField!, $limit: Int!) {
     auth {
@@ -239,30 +212,19 @@ export const ListUserDocument = gql`
  * });
  */
 export function useListUserQuery(
-  baseOptions: Apollo.QueryHookOptions<ListUserQuery, ListUserQueryVariables>
+  baseOptions: Apollo.QueryHookOptions<ListUserQuery, ListUserQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useQuery<ListUserQuery, ListUserQueryVariables>(
-    ListUserDocument,
-    options
-  )
+  return Apollo.useQuery<ListUserQuery, ListUserQueryVariables>(ListUserDocument, options)
 }
 export function useListUserLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    ListUserQuery,
-    ListUserQueryVariables
-  >
+  baseOptions?: Apollo.LazyQueryHookOptions<ListUserQuery, ListUserQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useLazyQuery<ListUserQuery, ListUserQueryVariables>(
-    ListUserDocument,
-    options
-  )
+  return Apollo.useLazyQuery<ListUserQuery, ListUserQueryVariables>(ListUserDocument, options)
 }
 export type ListUserQueryHookResult = ReturnType<typeof useListUserQuery>
-export type ListUserLazyQueryHookResult = ReturnType<
-  typeof useListUserLazyQuery
->
+export type ListUserLazyQueryHookResult = ReturnType<typeof useListUserLazyQuery>
 export const ListOrganizationDocument = gql`
   query listOrganization(
     $page: Int!
@@ -272,10 +234,7 @@ export const ListOrganizationDocument = gql`
   ) {
     auth {
       listOrganization(
-        param: {
-          search: { page: $page, search: $searchParam, limit: $limit }
-          isChild: $isChild
-        }
+        param: { search: { page: $page, search: $searchParam, limit: $limit }, isChild: $isChild }
       ) {
         listOrganizationResponse {
           orgName
@@ -305,32 +264,22 @@ export const ListOrganizationDocument = gql`
  * });
  */
 export function useListOrganizationQuery(
-  baseOptions: Apollo.QueryHookOptions<
-    ListOrganizationQuery,
-    ListOrganizationQueryVariables
-  >
+  baseOptions: Apollo.QueryHookOptions<ListOrganizationQuery, ListOrganizationQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
   return Apollo.useQuery<ListOrganizationQuery, ListOrganizationQueryVariables>(
     ListOrganizationDocument,
-    options
+    options,
   )
 }
 export function useListOrganizationLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    ListOrganizationQuery,
-    ListOrganizationQueryVariables
-  >
+  baseOptions?: Apollo.LazyQueryHookOptions<ListOrganizationQuery, ListOrganizationQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useLazyQuery<
-    ListOrganizationQuery,
-    ListOrganizationQueryVariables
-  >(ListOrganizationDocument, options)
+  return Apollo.useLazyQuery<ListOrganizationQuery, ListOrganizationQueryVariables>(
+    ListOrganizationDocument,
+    options,
+  )
 }
-export type ListOrganizationQueryHookResult = ReturnType<
-  typeof useListOrganizationQuery
->
-export type ListOrganizationLazyQueryHookResult = ReturnType<
-  typeof useListOrganizationLazyQuery
->
+export type ListOrganizationQueryHookResult = ReturnType<typeof useListOrganizationQuery>
+export type ListOrganizationLazyQueryHookResult = ReturnType<typeof useListOrganizationLazyQuery>

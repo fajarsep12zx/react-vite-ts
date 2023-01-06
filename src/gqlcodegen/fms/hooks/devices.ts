@@ -17,32 +17,16 @@ export type ListDevicesQuery = {
       data: Array<
         Pick<
           Types.DevicesData,
-          | 'ID'
-          | 'active'
-          | 'bluetoothName'
-          | 'imei'
-          | 'sim'
-          | 'model'
-          | 'status'
-          | 'vinNO'
+          'ID' | 'active' | 'bluetoothName' | 'imei' | 'sim' | 'model' | 'status' | 'vinNO'
         > & {
-          properties?: Types.Maybe<
-            Array<Pick<Types.Properties, 'field' | 'value'>>
-          >
+          properties?: Types.Maybe<Array<Pick<Types.Properties, 'field' | 'value'>>>
           tags?: Types.Maybe<Array<Pick<Types.Properties, 'field' | 'value'>>>
         }
       >
       pagination?: Types.Maybe<
         Pick<
           Types.PaginationResult,
-          | 'first'
-          | 'before'
-          | 'current'
-          | 'next'
-          | 'last'
-          | 'perPage'
-          | 'totalPage'
-          | 'totalRecord'
+          'first' | 'before' | 'current' | 'next' | 'last' | 'perPage' | 'totalPage' | 'totalRecord'
         >
       >
     }
@@ -57,29 +41,16 @@ export type DetailDevicesQuery = {
   devices: {
     detailDevices: {
       vehicle?: Types.Maybe<
-        Pick<
-          Types.VehicleData,
-          'vinNO' | 'licensePlate' | 'fleetName' | 'fleetModels'
-        > & {
-          properties?: Types.Maybe<
-            Array<Pick<Types.Properties, 'field' | 'value'>>
-          >
+        Pick<Types.VehicleData, 'vinNO' | 'licensePlate' | 'fleetName' | 'fleetModels'> & {
+          properties?: Types.Maybe<Array<Pick<Types.Properties, 'field' | 'value'>>>
         }
       >
       device?: Types.Maybe<
         Pick<
           Types.DevicesData,
-          | 'ID'
-          | 'sim'
-          | 'active'
-          | 'bluetoothName'
-          | 'imei'
-          | 'model'
-          | 'status'
+          'ID' | 'sim' | 'active' | 'bluetoothName' | 'imei' | 'model' | 'status'
         > & {
-          properties?: Types.Maybe<
-            Array<Pick<Types.Properties, 'field' | 'value'>>
-          >
+          properties?: Types.Maybe<Array<Pick<Types.Properties, 'field' | 'value'>>>
           tags?: Types.Maybe<Array<Pick<Types.Properties, 'field' | 'value'>>>
         }
       >
@@ -196,33 +167,22 @@ export const ListDevicesDocument = gql`
  * });
  */
 export function useListDevicesQuery(
-  baseOptions: Apollo.QueryHookOptions<
-    ListDevicesQuery,
-    ListDevicesQueryVariables
-  >
+  baseOptions: Apollo.QueryHookOptions<ListDevicesQuery, ListDevicesQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useQuery<ListDevicesQuery, ListDevicesQueryVariables>(
-    ListDevicesDocument,
-    options
-  )
+  return Apollo.useQuery<ListDevicesQuery, ListDevicesQueryVariables>(ListDevicesDocument, options)
 }
 export function useListDevicesLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    ListDevicesQuery,
-    ListDevicesQueryVariables
-  >
+  baseOptions?: Apollo.LazyQueryHookOptions<ListDevicesQuery, ListDevicesQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
   return Apollo.useLazyQuery<ListDevicesQuery, ListDevicesQueryVariables>(
     ListDevicesDocument,
-    options
+    options,
   )
 }
 export type ListDevicesQueryHookResult = ReturnType<typeof useListDevicesQuery>
-export type ListDevicesLazyQueryHookResult = ReturnType<
-  typeof useListDevicesLazyQuery
->
+export type ListDevicesLazyQueryHookResult = ReturnType<typeof useListDevicesLazyQuery>
 export const DetailDevicesDocument = gql`
   query detailDevices($id: String!) {
     devices {
@@ -276,35 +236,25 @@ export const DetailDevicesDocument = gql`
  * });
  */
 export function useDetailDevicesQuery(
-  baseOptions: Apollo.QueryHookOptions<
-    DetailDevicesQuery,
-    DetailDevicesQueryVariables
-  >
+  baseOptions: Apollo.QueryHookOptions<DetailDevicesQuery, DetailDevicesQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
   return Apollo.useQuery<DetailDevicesQuery, DetailDevicesQueryVariables>(
     DetailDevicesDocument,
-    options
+    options,
   )
 }
 export function useDetailDevicesLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    DetailDevicesQuery,
-    DetailDevicesQueryVariables
-  >
+  baseOptions?: Apollo.LazyQueryHookOptions<DetailDevicesQuery, DetailDevicesQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
   return Apollo.useLazyQuery<DetailDevicesQuery, DetailDevicesQueryVariables>(
     DetailDevicesDocument,
-    options
+    options,
   )
 }
-export type DetailDevicesQueryHookResult = ReturnType<
-  typeof useDetailDevicesQuery
->
-export type DetailDevicesLazyQueryHookResult = ReturnType<
-  typeof useDetailDevicesLazyQuery
->
+export type DetailDevicesQueryHookResult = ReturnType<typeof useDetailDevicesQuery>
+export type DetailDevicesLazyQueryHookResult = ReturnType<typeof useDetailDevicesLazyQuery>
 export const DevicesSingleUploadDocument = gql`
   mutation devicesSingleUpload($in: Upload!) {
     devices {
@@ -337,13 +287,13 @@ export function useDevicesSingleUploadMutation(
   baseOptions?: Apollo.MutationHookOptions<
     DevicesSingleUploadMutation,
     DevicesSingleUploadMutationVariables
-  >
+  >,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useMutation<
-    DevicesSingleUploadMutation,
-    DevicesSingleUploadMutationVariables
-  >(DevicesSingleUploadDocument, options)
+  return Apollo.useMutation<DevicesSingleUploadMutation, DevicesSingleUploadMutationVariables>(
+    DevicesSingleUploadDocument,
+    options,
+  )
 }
 export type DevicesSingleUploadMutationHookResult = ReturnType<
   typeof useDevicesSingleUploadMutation
@@ -377,20 +327,15 @@ export const AssignDevicesDocument = gql`
  * });
  */
 export function useAssignDevicesMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    AssignDevicesMutation,
-    AssignDevicesMutationVariables
-  >
+  baseOptions?: Apollo.MutationHookOptions<AssignDevicesMutation, AssignDevicesMutationVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useMutation<
-    AssignDevicesMutation,
-    AssignDevicesMutationVariables
-  >(AssignDevicesDocument, options)
+  return Apollo.useMutation<AssignDevicesMutation, AssignDevicesMutationVariables>(
+    AssignDevicesDocument,
+    options,
+  )
 }
-export type AssignDevicesMutationHookResult = ReturnType<
-  typeof useAssignDevicesMutation
->
+export type AssignDevicesMutationHookResult = ReturnType<typeof useAssignDevicesMutation>
 export const DeleteDevicesDocument = gql`
   mutation deleteDevices($id: String!) {
     devices {
@@ -421,27 +366,19 @@ export const DeleteDevicesDocument = gql`
  * });
  */
 export function useDeleteDevicesMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    DeleteDevicesMutation,
-    DeleteDevicesMutationVariables
-  >
+  baseOptions?: Apollo.MutationHookOptions<DeleteDevicesMutation, DeleteDevicesMutationVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useMutation<
-    DeleteDevicesMutation,
-    DeleteDevicesMutationVariables
-  >(DeleteDevicesDocument, options)
+  return Apollo.useMutation<DeleteDevicesMutation, DeleteDevicesMutationVariables>(
+    DeleteDevicesDocument,
+    options,
+  )
 }
-export type DeleteDevicesMutationHookResult = ReturnType<
-  typeof useDeleteDevicesMutation
->
+export type DeleteDevicesMutationHookResult = ReturnType<typeof useDeleteDevicesMutation>
 export const UpdateDevicesDocument = gql`
   mutation updateDevices($id: String!, $sim: String!, $bluetoothName: String!) {
     devices {
-      updateDevice(
-        id: $id
-        param: { sim: $sim, bluetoothName: $bluetoothName }
-      ) {
+      updateDevice(id: $id, param: { sim: $sim, bluetoothName: $bluetoothName }) {
         id
         success
         message
@@ -470,17 +407,12 @@ export const UpdateDevicesDocument = gql`
  * });
  */
 export function useUpdateDevicesMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    UpdateDevicesMutation,
-    UpdateDevicesMutationVariables
-  >
+  baseOptions?: Apollo.MutationHookOptions<UpdateDevicesMutation, UpdateDevicesMutationVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useMutation<
-    UpdateDevicesMutation,
-    UpdateDevicesMutationVariables
-  >(UpdateDevicesDocument, options)
+  return Apollo.useMutation<UpdateDevicesMutation, UpdateDevicesMutationVariables>(
+    UpdateDevicesDocument,
+    options,
+  )
 }
-export type UpdateDevicesMutationHookResult = ReturnType<
-  typeof useUpdateDevicesMutation
->
+export type UpdateDevicesMutationHookResult = ReturnType<typeof useUpdateDevicesMutation>

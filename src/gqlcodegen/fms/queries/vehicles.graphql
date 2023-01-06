@@ -48,12 +48,7 @@ query lastPositionList(
 ) {
   vehicles {
     lastPositionList(
-      param: {
-        search: $search
-        pagination: $pagination
-        filterBy: $filterBy
-        orgID: $orgID
-      }
+      param: { search: $search, pagination: $pagination, filterBy: $filterBy, orgID: $orgID }
     ) {
       data {
         ID
@@ -199,15 +194,9 @@ query listReport($search: String!, $pagination: PaginationParam!) {
   }
 }
 
-query listVehicles(
-  $search: String!
-  $filterBy: VehicleFilterType!
-  $pagination: PaginationParam!
-) {
+query listVehicles($search: String!, $filterBy: VehicleFilterType!, $pagination: PaginationParam!) {
   vehicles {
-    listVehicles(
-      param: { search: $search, filterBy: $filterBy, pagination: $pagination }
-    ) {
+    listVehicles(param: { search: $search, filterBy: $filterBy, pagination: $pagination }) {
       data {
         ID
         tenantID

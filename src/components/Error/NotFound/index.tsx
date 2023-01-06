@@ -6,7 +6,7 @@ const NotFound = () => {
 
   return (
     <div className={classes.wrapper}>
-      <img alt='not-found' src='/public/images/404-page-not-found.svg' />
+      <img alt="not-found" src="/public/images/404-page-not-found.svg" />
     </div>
   )
 }

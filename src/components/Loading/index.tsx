@@ -13,8 +13,8 @@ interface Props {
 const Loading = ({ children, height = '', loading, loadingComponent = null, py }: Props) => {
   if (loading) {
     return (
-      <Box display='flex' justifyContent='center' alignItems='center' height={height} py={py}>
-        {loadingComponent || <CircularProgress color='secondary' />}
+      <Box display="flex" justifyContent="center" alignItems="center" height={height} py={py}>
+        {loadingComponent || <CircularProgress color="secondary" />}
       </Box>
     )
   }

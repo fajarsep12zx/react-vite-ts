@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
-import ReloadPrompt from './components/ReloadPrompt'
-import useAuth from './utils/auth/useAuth'
 
 import ProtectedLayout from '~/components/Layout/Protected'
 import PublicLayout from '~/components/Layout/Public'
+
+import ReloadPrompt from './components/ReloadPrompt'
+import useAuth from './utils/auth/useAuth'
 
 function App() {
   const { userData, isLoggedIn, handleFetchProfile } = useAuth()
@@ -17,7 +18,7 @@ function App() {
 
     // fetch new data profile
     handleFetchProfile()
-  }, [userData, handleFetchProfile])
+  }, [isLoggedIn, userData, handleFetchProfile])
 
   return (
     <>

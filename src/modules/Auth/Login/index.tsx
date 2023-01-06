@@ -20,20 +20,20 @@ const Login = () => {
 
   return (
     <Box className={`${classes.container} ${classes.background}`}>
-      <Box height='100vh' className={classes.formContainer}>
-        <Box mb={6} data-testid='box-logo'>
-          <img className={classes.logo} src='/images/xtrip_logo_color.png' alt='landing' />
+      <Box height="100vh" className={classes.formContainer}>
+        <Box mb={6} data-testid="box-logo">
+          <img className={classes.logo} src="/images/xtrip_logo_color.png" alt="landing" />
         </Box>
-        <Box data-testid='box-card' minWidth='25%' className={classes.whiteCardBox}>
-          <Box className={classes.title} data-testid='box-title'>
+        <Box data-testid="box-card" minWidth="25%" className={classes.whiteCardBox}>
+          <Box className={classes.title} data-testid="box-title">
             Welcome Back
           </Box>
-          <Box className={classes.subTitle} data-testid='box-subtile'>
+          <Box className={classes.subTitle} data-testid="box-subtile">
             Enter your credentials to access your account.
           </Box>
 
           {data.error && (
-            <Box className={classes.errorMessage} data-testid='box-login-error-message'>
+            <Box className={classes.errorMessage} data-testid="box-login-error-message">
               <span className={classes.errorTitle}>Login failed:</span>
               <span>Invalid username or password.</span>
             </Box>
@@ -52,34 +52,34 @@ const Login = () => {
               <Form>
                 <Box className={classes.formSection}>
                   <Field
-                    data-testid='input-username'
-                    data-testid-helpertext='error-username'
-                    name='username'
-                    type='text'
-                    placeholder='Enter your email'
+                    data-testid="input-username"
+                    data-testid-helpertext="error-username"
+                    name="username"
+                    type="text"
+                    placeholder="Enter your email"
                     component={CustomTextField}
                     InputProps={{
                       startAdornment: <EmailIcon className={classes.iconStyle} />,
                     }}
                   />
                   <Field
-                    data-testid='input-password'
-                    data-testid-helpertext='error-password'
-                    name='password'
-                    type='password'
-                    placeholder='Enter your password'
+                    data-testid="input-password"
+                    data-testid-helpertext="error-password"
+                    name="password"
+                    type="password"
+                    placeholder="Enter your password"
                     component={CustomTextField}
                     InputProps={{
                       startAdornment: <LockIcon className={classes.iconStyle} />,
                     }}
                   />
                   <Button
-                    data-testid='btn-submit-login'
-                    variant='contained'
-                    color='secondary'
-                    className='btn-rounded'
+                    data-testid="btn-submit-login"
+                    variant="contained"
+                    color="secondary"
+                    className="btn-rounded"
                     disabled={isSubmitting}
-                    type='submit'
+                    type="submit"
                   >
                     Login
                   </Button>
@@ -97,13 +97,13 @@ const Login = () => {
         <Box className={classes.underTitle} mt={8}>
           <span>Forgot your password?</span>
           <span>
-            <a className={classes.resetPass} href='/'>
+            <a className={classes.resetPass} href="/">
               Reset Password
             </a>
           </span>
         </Box>
       </Box>
-      <Box position='absolute' bottom={2} right={4} fontSize='xxs'>
+      <Box position="absolute" bottom={2} right={4} fontSize="xxs">
         {process.env.VERSION}
       </Box>
     </Box>

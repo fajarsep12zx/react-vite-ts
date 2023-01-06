@@ -26,24 +26,24 @@ const Sidebar = ({ routes }: Props) => {
 
   return (
     <Drawer
-      variant='permanent'
+      variant="permanent"
       open={data.open}
       className={classes.drawer}
       classes={{ paper: classes.drawerPaper }}
     >
       <div className={classes.drawerHead}>
         <Box style={{ display: data.open ? 'block' : 'none' }}>
-          <img className={classes.logo} src='/public/images/sidebar_logo.png' alt='landing' />
+          <img className={classes.logo} src="/public/images/sidebar_logo.png" alt="landing" />
         </Box>
         <IconButton className={classes.expandButton} onClick={methods.handleDrawer}>
           {data.open ? (
             <Icon
-              fontSize='small'
+              fontSize="small"
               className={clsx('fas fa-angle-double-left', classes.iconStyle)}
             />
           ) : (
             <Icon
-              fontSize='small'
+              fontSize="small"
               className={clsx('fas fa-angle-double-right', classes.iconStyle)}
             />
           )}

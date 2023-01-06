@@ -63,14 +63,7 @@ export type LastPositionListQuery = {
       pagination?: Types.Maybe<
         Pick<
           Types.PaginationResult,
-          | 'first'
-          | 'before'
-          | 'current'
-          | 'next'
-          | 'last'
-          | 'perPage'
-          | 'totalPage'
-          | 'totalRecord'
+          'first' | 'before' | 'current' | 'next' | 'last' | 'perPage' | 'totalPage' | 'totalRecord'
         >
       >
     }
@@ -135,9 +128,7 @@ export type DetailVehicleQuery = {
           | 'ignition'
           | 'imei'
         > & {
-          properties?: Types.Maybe<
-            Array<Pick<Types.Properties, 'field' | 'value'>>
-          >
+          properties?: Types.Maybe<Array<Pick<Types.Properties, 'field' | 'value'>>>
         }
         vehicle: Pick<
           Types.VehicleData,
@@ -153,9 +144,7 @@ export type DetailVehicleQuery = {
           | 'tenantID'
           | 'vinNO'
         > & {
-          properties?: Types.Maybe<
-            Array<Pick<Types.Properties, 'field' | 'value'>>
-          >
+          properties?: Types.Maybe<Array<Pick<Types.Properties, 'field' | 'value'>>>
           tags?: Types.Maybe<Array<Pick<Types.Properties, 'field' | 'value'>>>
         }
       }>
@@ -172,12 +161,7 @@ export type GetReportQuery = {
     getReport: Array<
       Pick<
         Types.TripData,
-        | 'startTime'
-        | 'endTime'
-        | 'startCoordinate'
-        | 'endCoordinate'
-        | 'duration'
-        | 'distance'
+        'startTime' | 'endTime' | 'startCoordinate' | 'endCoordinate' | 'duration' | 'distance'
       >
     >
   }
@@ -194,27 +178,13 @@ export type ListReportQuery = {
       data: Array<
         Pick<
           Types.ReportData,
-          | 'ID'
-          | 'date'
-          | 'type'
-          | 'fleetID'
-          | 'fleetName'
-          | 'status'
-          | 'fileUrl'
-          | 'requestedAt'
+          'ID' | 'date' | 'type' | 'fleetID' | 'fleetName' | 'status' | 'fileUrl' | 'requestedAt'
         >
       >
       pagination?: Types.Maybe<
         Pick<
           Types.PaginationResult,
-          | 'totalPage'
-          | 'totalRecord'
-          | 'next'
-          | 'last'
-          | 'current'
-          | 'before'
-          | 'first'
-          | 'perPage'
+          'totalPage' | 'totalRecord' | 'next' | 'last' | 'current' | 'before' | 'first' | 'perPage'
         >
       >
     }
@@ -246,9 +216,7 @@ export type ListVehiclesQuery = {
           | 'status'
         > & {
           tags?: Types.Maybe<Array<Pick<Types.Properties, 'field' | 'value'>>>
-          properties?: Types.Maybe<
-            Array<Pick<Types.Properties, 'field' | 'value'>>
-          >
+          properties?: Types.Maybe<Array<Pick<Types.Properties, 'field' | 'value'>>>
         }
       >
     }
@@ -383,12 +351,7 @@ export const LastPositionListDocument = gql`
   ) {
     vehicles {
       lastPositionList(
-        param: {
-          search: $search
-          pagination: $pagination
-          filterBy: $filterBy
-          orgID: $orgID
-        }
+        param: { search: $search, pagination: $pagination, filterBy: $filterBy, orgID: $orgID }
       ) {
         data {
           ID
@@ -440,41 +403,29 @@ export const LastPositionListDocument = gql`
  * });
  */
 export function useLastPositionListQuery(
-  baseOptions: Apollo.QueryHookOptions<
-    LastPositionListQuery,
-    LastPositionListQueryVariables
-  >
+  baseOptions: Apollo.QueryHookOptions<LastPositionListQuery, LastPositionListQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
   return Apollo.useQuery<LastPositionListQuery, LastPositionListQueryVariables>(
     LastPositionListDocument,
-    options
+    options,
   )
 }
 export function useLastPositionListLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    LastPositionListQuery,
-    LastPositionListQueryVariables
-  >
+  baseOptions?: Apollo.LazyQueryHookOptions<LastPositionListQuery, LastPositionListQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useLazyQuery<
-    LastPositionListQuery,
-    LastPositionListQueryVariables
-  >(LastPositionListDocument, options)
+  return Apollo.useLazyQuery<LastPositionListQuery, LastPositionListQueryVariables>(
+    LastPositionListDocument,
+    options,
+  )
 }
-export type LastPositionListQueryHookResult = ReturnType<
-  typeof useLastPositionListQuery
->
-export type LastPositionListLazyQueryHookResult = ReturnType<
-  typeof useLastPositionListLazyQuery
->
+export type LastPositionListQueryHookResult = ReturnType<typeof useLastPositionListQuery>
+export type LastPositionListLazyQueryHookResult = ReturnType<typeof useLastPositionListLazyQuery>
 export const LastPositionAssetOptionsDocument = gql`
   query lastPositionAssetOptions($orgID: String) {
     vehicles {
-      lastPositionList(
-        param: { pagination: { active: false }, orgID: $orgID }
-      ) {
+      lastPositionList(param: { pagination: { active: false }, orgID: $orgID }) {
         data {
           data {
             vehicle {
@@ -508,25 +459,25 @@ export function useLastPositionAssetOptionsQuery(
   baseOptions?: Apollo.QueryHookOptions<
     LastPositionAssetOptionsQuery,
     LastPositionAssetOptionsQueryVariables
-  >
+  >,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useQuery<
-    LastPositionAssetOptionsQuery,
-    LastPositionAssetOptionsQueryVariables
-  >(LastPositionAssetOptionsDocument, options)
+  return Apollo.useQuery<LastPositionAssetOptionsQuery, LastPositionAssetOptionsQueryVariables>(
+    LastPositionAssetOptionsDocument,
+    options,
+  )
 }
 export function useLastPositionAssetOptionsLazyQuery(
   baseOptions?: Apollo.LazyQueryHookOptions<
     LastPositionAssetOptionsQuery,
     LastPositionAssetOptionsQueryVariables
-  >
+  >,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useLazyQuery<
-    LastPositionAssetOptionsQuery,
-    LastPositionAssetOptionsQueryVariables
-  >(LastPositionAssetOptionsDocument, options)
+  return Apollo.useLazyQuery<LastPositionAssetOptionsQuery, LastPositionAssetOptionsQueryVariables>(
+    LastPositionAssetOptionsDocument,
+    options,
+  )
 }
 export type LastPositionAssetOptionsQueryHookResult = ReturnType<
   typeof useLastPositionAssetOptionsQuery
@@ -537,9 +488,7 @@ export type LastPositionAssetOptionsLazyQueryHookResult = ReturnType<
 export const TripHistoryDocument = gql`
   query tripHistory($ID: String!, $startDate: String!, $endDate: String!) {
     vehicles {
-      tripHistory(
-        param: { ID: $ID, startDate: $startDate, endDate: $endDate }
-      ) {
+      tripHistory(param: { ID: $ID, startDate: $startDate, endDate: $endDate }) {
         startTime
         distance
         duration
@@ -575,33 +524,22 @@ export const TripHistoryDocument = gql`
  * });
  */
 export function useTripHistoryQuery(
-  baseOptions: Apollo.QueryHookOptions<
-    TripHistoryQuery,
-    TripHistoryQueryVariables
-  >
+  baseOptions: Apollo.QueryHookOptions<TripHistoryQuery, TripHistoryQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useQuery<TripHistoryQuery, TripHistoryQueryVariables>(
-    TripHistoryDocument,
-    options
-  )
+  return Apollo.useQuery<TripHistoryQuery, TripHistoryQueryVariables>(TripHistoryDocument, options)
 }
 export function useTripHistoryLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    TripHistoryQuery,
-    TripHistoryQueryVariables
-  >
+  baseOptions?: Apollo.LazyQueryHookOptions<TripHistoryQuery, TripHistoryQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
   return Apollo.useLazyQuery<TripHistoryQuery, TripHistoryQueryVariables>(
     TripHistoryDocument,
-    options
+    options,
   )
 }
 export type TripHistoryQueryHookResult = ReturnType<typeof useTripHistoryQuery>
-export type TripHistoryLazyQueryHookResult = ReturnType<
-  typeof useTripHistoryLazyQuery
->
+export type TripHistoryLazyQueryHookResult = ReturnType<typeof useTripHistoryLazyQuery>
 export const DetailVehicleDocument = gql`
   query detailVehicle($id: String!) {
     vehicles {
@@ -666,35 +604,25 @@ export const DetailVehicleDocument = gql`
  * });
  */
 export function useDetailVehicleQuery(
-  baseOptions: Apollo.QueryHookOptions<
-    DetailVehicleQuery,
-    DetailVehicleQueryVariables
-  >
+  baseOptions: Apollo.QueryHookOptions<DetailVehicleQuery, DetailVehicleQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
   return Apollo.useQuery<DetailVehicleQuery, DetailVehicleQueryVariables>(
     DetailVehicleDocument,
-    options
+    options,
   )
 }
 export function useDetailVehicleLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    DetailVehicleQuery,
-    DetailVehicleQueryVariables
-  >
+  baseOptions?: Apollo.LazyQueryHookOptions<DetailVehicleQuery, DetailVehicleQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
   return Apollo.useLazyQuery<DetailVehicleQuery, DetailVehicleQueryVariables>(
     DetailVehicleDocument,
-    options
+    options,
   )
 }
-export type DetailVehicleQueryHookResult = ReturnType<
-  typeof useDetailVehicleQuery
->
-export type DetailVehicleLazyQueryHookResult = ReturnType<
-  typeof useDetailVehicleLazyQuery
->
+export type DetailVehicleQueryHookResult = ReturnType<typeof useDetailVehicleQuery>
+export type DetailVehicleLazyQueryHookResult = ReturnType<typeof useDetailVehicleLazyQuery>
 export const GetReportDocument = gql`
   query getReport($filename: String!) {
     vehicles {
@@ -727,30 +655,19 @@ export const GetReportDocument = gql`
  * });
  */
 export function useGetReportQuery(
-  baseOptions: Apollo.QueryHookOptions<GetReportQuery, GetReportQueryVariables>
+  baseOptions: Apollo.QueryHookOptions<GetReportQuery, GetReportQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useQuery<GetReportQuery, GetReportQueryVariables>(
-    GetReportDocument,
-    options
-  )
+  return Apollo.useQuery<GetReportQuery, GetReportQueryVariables>(GetReportDocument, options)
 }
 export function useGetReportLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    GetReportQuery,
-    GetReportQueryVariables
-  >
+  baseOptions?: Apollo.LazyQueryHookOptions<GetReportQuery, GetReportQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useLazyQuery<GetReportQuery, GetReportQueryVariables>(
-    GetReportDocument,
-    options
-  )
+  return Apollo.useLazyQuery<GetReportQuery, GetReportQueryVariables>(GetReportDocument, options)
 }
 export type GetReportQueryHookResult = ReturnType<typeof useGetReportQuery>
-export type GetReportLazyQueryHookResult = ReturnType<
-  typeof useGetReportLazyQuery
->
+export type GetReportLazyQueryHookResult = ReturnType<typeof useGetReportLazyQuery>
 export const ListReportDocument = gql`
   query listReport($search: String!, $pagination: PaginationParam!) {
     vehicles {
@@ -798,33 +715,19 @@ export const ListReportDocument = gql`
  * });
  */
 export function useListReportQuery(
-  baseOptions: Apollo.QueryHookOptions<
-    ListReportQuery,
-    ListReportQueryVariables
-  >
+  baseOptions: Apollo.QueryHookOptions<ListReportQuery, ListReportQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useQuery<ListReportQuery, ListReportQueryVariables>(
-    ListReportDocument,
-    options
-  )
+  return Apollo.useQuery<ListReportQuery, ListReportQueryVariables>(ListReportDocument, options)
 }
 export function useListReportLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    ListReportQuery,
-    ListReportQueryVariables
-  >
+  baseOptions?: Apollo.LazyQueryHookOptions<ListReportQuery, ListReportQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useLazyQuery<ListReportQuery, ListReportQueryVariables>(
-    ListReportDocument,
-    options
-  )
+  return Apollo.useLazyQuery<ListReportQuery, ListReportQueryVariables>(ListReportDocument, options)
 }
 export type ListReportQueryHookResult = ReturnType<typeof useListReportQuery>
-export type ListReportLazyQueryHookResult = ReturnType<
-  typeof useListReportLazyQuery
->
+export type ListReportLazyQueryHookResult = ReturnType<typeof useListReportLazyQuery>
 export const ListVehiclesDocument = gql`
   query listVehicles(
     $search: String!
@@ -832,9 +735,7 @@ export const ListVehiclesDocument = gql`
     $pagination: PaginationParam!
   ) {
     vehicles {
-      listVehicles(
-        param: { search: $search, filterBy: $filterBy, pagination: $pagination }
-      ) {
+      listVehicles(param: { search: $search, filterBy: $filterBy, pagination: $pagination }) {
         data {
           ID
           tenantID
@@ -880,35 +781,25 @@ export const ListVehiclesDocument = gql`
  * });
  */
 export function useListVehiclesQuery(
-  baseOptions: Apollo.QueryHookOptions<
-    ListVehiclesQuery,
-    ListVehiclesQueryVariables
-  >
+  baseOptions: Apollo.QueryHookOptions<ListVehiclesQuery, ListVehiclesQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
   return Apollo.useQuery<ListVehiclesQuery, ListVehiclesQueryVariables>(
     ListVehiclesDocument,
-    options
+    options,
   )
 }
 export function useListVehiclesLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    ListVehiclesQuery,
-    ListVehiclesQueryVariables
-  >
+  baseOptions?: Apollo.LazyQueryHookOptions<ListVehiclesQuery, ListVehiclesQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
   return Apollo.useLazyQuery<ListVehiclesQuery, ListVehiclesQueryVariables>(
     ListVehiclesDocument,
-    options
+    options,
   )
 }
-export type ListVehiclesQueryHookResult = ReturnType<
-  typeof useListVehiclesQuery
->
-export type ListVehiclesLazyQueryHookResult = ReturnType<
-  typeof useListVehiclesLazyQuery
->
+export type ListVehiclesQueryHookResult = ReturnType<typeof useListVehiclesQuery>
+export type ListVehiclesLazyQueryHookResult = ReturnType<typeof useListVehiclesLazyQuery>
 export const RequestReportDocument = gql`
   mutation requestReport($fleetID: String!, $type: String!, $date: String!) {
     vehicles {
@@ -946,20 +837,15 @@ export const RequestReportDocument = gql`
  * });
  */
 export function useRequestReportMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    RequestReportMutation,
-    RequestReportMutationVariables
-  >
+  baseOptions?: Apollo.MutationHookOptions<RequestReportMutation, RequestReportMutationVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useMutation<
-    RequestReportMutation,
-    RequestReportMutationVariables
-  >(RequestReportDocument, options)
+  return Apollo.useMutation<RequestReportMutation, RequestReportMutationVariables>(
+    RequestReportDocument,
+    options,
+  )
 }
-export type RequestReportMutationHookResult = ReturnType<
-  typeof useRequestReportMutation
->
+export type RequestReportMutationHookResult = ReturnType<typeof useRequestReportMutation>
 export const ListVehicleModelsDocument = gql`
   query listVehicleModels($param: ModelListParam) {
     vehicles {
@@ -990,35 +876,28 @@ export const ListVehicleModelsDocument = gql`
  * });
  */
 export function useListVehicleModelsQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    ListVehicleModelsQuery,
-    ListVehicleModelsQueryVariables
-  >
+  baseOptions?: Apollo.QueryHookOptions<ListVehicleModelsQuery, ListVehicleModelsQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useQuery<
-    ListVehicleModelsQuery,
-    ListVehicleModelsQueryVariables
-  >(ListVehicleModelsDocument, options)
+  return Apollo.useQuery<ListVehicleModelsQuery, ListVehicleModelsQueryVariables>(
+    ListVehicleModelsDocument,
+    options,
+  )
 }
 export function useListVehicleModelsLazyQuery(
   baseOptions?: Apollo.LazyQueryHookOptions<
     ListVehicleModelsQuery,
     ListVehicleModelsQueryVariables
-  >
+  >,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useLazyQuery<
-    ListVehicleModelsQuery,
-    ListVehicleModelsQueryVariables
-  >(ListVehicleModelsDocument, options)
+  return Apollo.useLazyQuery<ListVehicleModelsQuery, ListVehicleModelsQueryVariables>(
+    ListVehicleModelsDocument,
+    options,
+  )
 }
-export type ListVehicleModelsQueryHookResult = ReturnType<
-  typeof useListVehicleModelsQuery
->
-export type ListVehicleModelsLazyQueryHookResult = ReturnType<
-  typeof useListVehicleModelsLazyQuery
->
+export type ListVehicleModelsQueryHookResult = ReturnType<typeof useListVehicleModelsQuery>
+export type ListVehicleModelsLazyQueryHookResult = ReturnType<typeof useListVehicleModelsLazyQuery>
 export const ListVehicleTypesDocument = gql`
   query listVehicleTypes {
     vehicles {
@@ -1048,35 +927,25 @@ export const ListVehicleTypesDocument = gql`
  * });
  */
 export function useListVehicleTypesQuery(
-  baseOptions?: Apollo.QueryHookOptions<
-    ListVehicleTypesQuery,
-    ListVehicleTypesQueryVariables
-  >
+  baseOptions?: Apollo.QueryHookOptions<ListVehicleTypesQuery, ListVehicleTypesQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
   return Apollo.useQuery<ListVehicleTypesQuery, ListVehicleTypesQueryVariables>(
     ListVehicleTypesDocument,
-    options
+    options,
   )
 }
 export function useListVehicleTypesLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    ListVehicleTypesQuery,
-    ListVehicleTypesQueryVariables
-  >
+  baseOptions?: Apollo.LazyQueryHookOptions<ListVehicleTypesQuery, ListVehicleTypesQueryVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useLazyQuery<
-    ListVehicleTypesQuery,
-    ListVehicleTypesQueryVariables
-  >(ListVehicleTypesDocument, options)
+  return Apollo.useLazyQuery<ListVehicleTypesQuery, ListVehicleTypesQueryVariables>(
+    ListVehicleTypesDocument,
+    options,
+  )
 }
-export type ListVehicleTypesQueryHookResult = ReturnType<
-  typeof useListVehicleTypesQuery
->
-export type ListVehicleTypesLazyQueryHookResult = ReturnType<
-  typeof useListVehicleTypesLazyQuery
->
+export type ListVehicleTypesQueryHookResult = ReturnType<typeof useListVehicleTypesQuery>
+export type ListVehicleTypesLazyQueryHookResult = ReturnType<typeof useListVehicleTypesLazyQuery>
 export const VehicleSingleUploadDocument = gql`
   mutation vehicleSingleUpload($in: Upload!) {
     vehicles {
@@ -1109,13 +978,13 @@ export function useVehicleSingleUploadMutation(
   baseOptions?: Apollo.MutationHookOptions<
     VehicleSingleUploadMutation,
     VehicleSingleUploadMutationVariables
-  >
+  >,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useMutation<
-    VehicleSingleUploadMutation,
-    VehicleSingleUploadMutationVariables
-  >(VehicleSingleUploadDocument, options)
+  return Apollo.useMutation<VehicleSingleUploadMutation, VehicleSingleUploadMutationVariables>(
+    VehicleSingleUploadDocument,
+    options,
+  )
 }
 export type VehicleSingleUploadMutationHookResult = ReturnType<
   typeof useVehicleSingleUploadMutation
@@ -1150,20 +1019,15 @@ export const UpdateVehiclesDocument = gql`
  * });
  */
 export function useUpdateVehiclesMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    UpdateVehiclesMutation,
-    UpdateVehiclesMutationVariables
-  >
+  baseOptions?: Apollo.MutationHookOptions<UpdateVehiclesMutation, UpdateVehiclesMutationVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useMutation<
-    UpdateVehiclesMutation,
-    UpdateVehiclesMutationVariables
-  >(UpdateVehiclesDocument, options)
+  return Apollo.useMutation<UpdateVehiclesMutation, UpdateVehiclesMutationVariables>(
+    UpdateVehiclesDocument,
+    options,
+  )
 }
-export type UpdateVehiclesMutationHookResult = ReturnType<
-  typeof useUpdateVehiclesMutation
->
+export type UpdateVehiclesMutationHookResult = ReturnType<typeof useUpdateVehiclesMutation>
 export const DeleteVehiclesDocument = gql`
   mutation deleteVehicles($id: String!) {
     vehicles {
@@ -1193,20 +1057,15 @@ export const DeleteVehiclesDocument = gql`
  * });
  */
 export function useDeleteVehiclesMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    DeleteVehiclesMutation,
-    DeleteVehiclesMutationVariables
-  >
+  baseOptions?: Apollo.MutationHookOptions<DeleteVehiclesMutation, DeleteVehiclesMutationVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useMutation<
-    DeleteVehiclesMutation,
-    DeleteVehiclesMutationVariables
-  >(DeleteVehiclesDocument, options)
+  return Apollo.useMutation<DeleteVehiclesMutation, DeleteVehiclesMutationVariables>(
+    DeleteVehiclesDocument,
+    options,
+  )
 }
-export type DeleteVehiclesMutationHookResult = ReturnType<
-  typeof useDeleteVehiclesMutation
->
+export type DeleteVehiclesMutationHookResult = ReturnType<typeof useDeleteVehiclesMutation>
 export const AddVehicleToGroupDocument = gql`
   mutation addVehicleToGroup($id: String!, $orgid: String!) {
     vehicles {
@@ -1240,14 +1099,12 @@ export function useAddVehicleToGroupMutation(
   baseOptions?: Apollo.MutationHookOptions<
     AddVehicleToGroupMutation,
     AddVehicleToGroupMutationVariables
-  >
+  >,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
-  return Apollo.useMutation<
-    AddVehicleToGroupMutation,
-    AddVehicleToGroupMutationVariables
-  >(AddVehicleToGroupDocument, options)
+  return Apollo.useMutation<AddVehicleToGroupMutation, AddVehicleToGroupMutationVariables>(
+    AddVehicleToGroupDocument,
+    options,
+  )
 }
-export type AddVehicleToGroupMutationHookResult = ReturnType<
-  typeof useAddVehicleToGroupMutation
->
+export type AddVehicleToGroupMutationHookResult = ReturnType<typeof useAddVehicleToGroupMutation>

@@ -36,7 +36,7 @@ const MenuPopover = ({ open }) => {
         <ListItem className={classes.listItem} button disableRipple onClick={handleProfile}>
           <ListItemIcon className={`${classes.listItemIcon} ${classes.listItemConfigIcon}`}>
             <Icon
-              fontSize='small'
+              fontSize="small"
               className={clsx('fas fa-user', classes.logo, classes.listItemIcon)}
             />
           </ListItemIcon>
@@ -47,7 +47,7 @@ const MenuPopover = ({ open }) => {
         <ListItem className={classes.listItem} onClick={handleLogout} button disableRipple>
           <ListItemIcon className={`${classes.listItemIcon} ${classes.listItemConfigIcon}`}>
             <Icon
-              fontSize='small'
+              fontSize="small"
               className={clsx('fas fa-sign-out-alt', classes.logo, classes.listItemIcon)}
             />
           </ListItemIcon>
@@ -56,7 +56,7 @@ const MenuPopover = ({ open }) => {
           </ListItemText>
         </ListItem>
       </List>
-      <Typography variant='subtitle2' className={classes.footerTitle}>
+      <Typography variant="subtitle2" className={classes.footerTitle}>
         Powered by Xtrips
       </Typography>
       <Popover
@@ -76,7 +76,7 @@ const MenuPopover = ({ open }) => {
         <Box px={2} py={3}>
           <MenuItem onClick={handleLogout}>
             <ListItemIcon>
-              <Icon className='fas fa-sign-out-alt' fontSize='small' />
+              <Icon className="fas fa-sign-out-alt" fontSize="small" />
             </ListItemIcon>
             <span>Logout</span>
           </MenuItem>

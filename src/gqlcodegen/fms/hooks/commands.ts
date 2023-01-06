@@ -43,17 +43,12 @@ export const SendCommandDocument = gql`
  * });
  */
 export function useSendCommandMutation(
-  baseOptions?: Apollo.MutationHookOptions<
-    SendCommandMutation,
-    SendCommandMutationVariables
-  >
+  baseOptions?: Apollo.MutationHookOptions<SendCommandMutation, SendCommandMutationVariables>,
 ) {
   const options = { ...defaultOptions, ...baseOptions }
   return Apollo.useMutation<SendCommandMutation, SendCommandMutationVariables>(
     SendCommandDocument,
-    options
+    options,
   )
 }
-export type SendCommandMutationHookResult = ReturnType<
-  typeof useSendCommandMutation
->
+export type SendCommandMutationHookResult = ReturnType<typeof useSendCommandMutation>

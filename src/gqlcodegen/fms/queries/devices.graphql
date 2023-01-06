@@ -6,12 +6,7 @@ query listDevices(
 ) {
   devices {
     listDevices(
-      param: {
-        search: $search
-        pagination: $pagination
-        filterBy: $filterBy
-        QCFilter: $QCFilter
-      }
+      param: { search: $search, pagination: $pagination, filterBy: $filterBy, QCFilter: $QCFilter }
     ) {
       data {
         ID

@@ -1,10 +1,4 @@
-import {
-  ApolloClient,
-  InMemoryCache,
-  HttpLink,
-  from,
-  split,
-} from '@apollo/client'
+import { ApolloClient, InMemoryCache, HttpLink, from, split } from '@apollo/client'
 import { createUploadLink } from 'apollo-upload-client'
 
 import { GRAPHQL_SERVER_HOST } from '~/config'
@@ -29,7 +23,7 @@ const queryHttpLinkIDM = new HttpLink({
 const splittedHTTPLinks = split(
   (operation) => operation.getContext().clientName === GRAPHQL_SERVER_HOST.IDM,
   queryHttpLinkIDM,
-  queryHttpLinkFMS
+  queryHttpLinkFMS,
 )
 
 export const client = new ApolloClient({

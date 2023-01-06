@@ -16,7 +16,7 @@ export default [
     component: <span>Live Track</span>,
     exact: false,
     withHeader: true,
-    icon: <ReactSVG src='/public/icons/menu-icon/map.svg' />,
+    icon: <ReactSVG src="/public/icons/menu-icon/map.svg" />,
   },
   {
     id: 'playback',
@@ -26,7 +26,7 @@ export default [
     component: <span>Trip</span>,
     exact: false,
     withHeader: true,
-    icon: <ReactSVG src='/public/icons/menu-icon/playback.svg' />,
+    icon: <ReactSVG src="/public/icons/menu-icon/playback.svg" />,
   },
   {
     id: 'devices',
@@ -36,7 +36,7 @@ export default [
     component: <span>Live Track</span>,
     exact: false,
     withHeader: true,
-    icon: <ReactSVG src='/public/icons/menu-icon/devices.svg' />,
+    icon: <ReactSVG src="/public/icons/menu-icon/devices.svg" />,
   },
   {
     id: 'assets',
@@ -46,7 +46,7 @@ export default [
     component: <span>Live Track</span>,
     exact: false,
     withHeader: true,
-    icon: <ReactSVG src='/public/icons/menu-icon/assets.svg' />,
+    icon: <ReactSVG src="/public/icons/menu-icon/assets.svg" />,
   },
   {
     id: 'groups',
@@ -56,6 +56,6 @@ export default [
     component: <span>Live Track</span>,
     exact: false,
     withHeader: true,
-    icon: <ReactSVG src='/public/icons/menu-icon/groups.svg' />,
+    icon: <ReactSVG src="/public/icons/menu-icon/groups.svg" />,
   },
 ]
