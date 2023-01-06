@@ -24,3 +24,4 @@ export const graphqlDefaultOptions = {
 }
 
 export const blacklistedUser = import.meta.env.VITE_BLACKLISTED_USER
+export const ALLOWED_DOMAINS = ['xtrip.link', 'xapiens.id']

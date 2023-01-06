@@ -21,7 +21,7 @@
     "@loadable/component": "^5.15.2",
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.8",
-    "@zebraxid/frontend-kit-auth": "0.1.0",
+    "@zebraxid/frontend-kit-auth": "0.4.0",
     "apollo-upload-client": "^14.0.0",
     "classnames": "^2.3.2",
     "formik": "^2.2.9",

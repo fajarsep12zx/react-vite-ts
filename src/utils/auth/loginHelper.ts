@@ -1,15 +1,17 @@
 import { client as zxAuthClient, cookies as zxAuthCookies } from '@zebraxid/frontend-kit-auth/auth'
 
-import { GRAPHQL_SERVER_HOST } from '~/config'
+import { ALLOWED_DOMAINS, GRAPHQL_SERVER_HOST } from '~/config'
+import { LOCAL_STORAGE_KEY_USER } from '~/config/constants'
+import * as LS from '~/utils/localStorage'
 
 // Login using zx auth client
-export const authLogin = (username: string, password: string) =>
+export const authLogin = (username, password) =>
   zxAuthClient
     .getRequestToken(GRAPHQL_SERVER_HOST.IDM, {
       username,
       password,
     })
-    .catch((e: any) => JSON.parse(e.message))
+    .catch((e) => JSON.parse(e.message))
 
 // Logout using zx auth client
 export const authLogout = async () => {
@@ -19,24 +21,6 @@ export const authLogout = async () => {
   return response
 }
 
-// refresh token using zx auth client
-export const authRefresh = async () => {
-  const { refreshToken } = zxAuthCookies.getToken()
-  const data = await zxAuthClient.getRefreshToken(GRAPHQL_SERVER_HOST.IDM, refreshToken)
-
-  const token = data?.data?.token?.refreshToken?.token
-  const newRefreshToken = data?.data?.token?.refreshToken?.refreshToken
-  if (token) {
-    zxAuthCookies.setToken(token, newRefreshToken)
-  } else {
-    zxAuthCookies.removeToken()
-
-    window.location.assign('/')
-  }
-
-  window.location.reload()
-}
-
 // get profile user using zx auth client
 export const fetchProfileData = async () => {
   const data = await zxAuthClient.getProfileData(GRAPHQL_SERVER_HOST.IDM)
@@ -44,7 +28,7 @@ export const fetchProfileData = async () => {
 }
 
 // get user websocket channels from JWT token
-export const decodeJWTToken = (token: string) => {
+export const decodeJWTToken = (token) => {
   if (token) {
     const userTokenData = zxAuthClient.decodeJWT(token)
 
@@ -61,7 +45,7 @@ export const decodeJWTToken = (token: string) => {
 }
 
 // get profile user using zx auth client JWT
-export const decodeJWTToUserData = async (token: string) => {
+export const decodeJWTToUserData = async (token) => {
   if (token) {
     const profileData = await fetchProfileData()
     const userTokenData = decodeJWTToken(token)
@@ -84,4 +68,20 @@ export const decodeJWTToUserData = async (token: string) => {
   }
 
   return null
+}
+
+// refresh token using zx auth client
+export const authRefresh = async () => {
+  const { token } = await zxAuthClient.doRefreshToken(GRAPHQL_SERVER_HOST.IDM, ALLOWED_DOMAINS)
+
+  if (token) {
+    const profileData = await decodeJWTToUserData(token)
+    LS.set(LOCAL_STORAGE_KEY_USER, profileData)
+  } else {
+    LS.remove(LOCAL_STORAGE_KEY_USER)
+    window.location.assign('/')
+    return null
+  }
+
+  return token
 }

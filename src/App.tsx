@@ -6,13 +6,18 @@ import ProtectedLayout from '~/components/Layout/Protected'
 import PublicLayout from '~/components/Layout/Public'
 
 function App() {
-  const { isLoggedIn, loadUserProfileData } = useAuth()
+  const { userData, isLoggedIn, handleFetchProfile } = useAuth()
 
   useEffect(() => {
-    if (isLoggedIn) {
-      loadUserProfileData()
-    }
-  }, [isLoggedIn])
+    // When use is not logged in do nothing
+    if (!isLoggedIn) return
+
+    // When useData is already exist do nothing
+    if (userData) return
+
+    // fetch new data profile
+    handleFetchProfile()
+  }, [userData, handleFetchProfile])
 
   return (
     <>

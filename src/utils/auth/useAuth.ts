@@ -1,85 +1,78 @@
-import { useContext, useCallback, useMemo } from 'react'
+import { useContext, useCallback } from 'react'
 
 import { cookies as zxAuthCookies } from '@zebraxid/frontend-kit-auth/auth'
-import isEqual from 'lodash-es/isEqual'
 
+import { ALLOWED_DOMAINS } from '~/config'
 import { LOCAL_STORAGE_KEY_USER } from '~/config/constants'
 import * as LS from '~/utils/localStorage'
 
 import graphqlClient from '../apollo/client'
 
 import { AuthContext } from './AuthProvider'
-import { authLogout, decodeJWTToken, decodeJWTToUserData } from './loginHelper'
+import { authLogout, decodeJWTToUserData } from './loginHelper'
 
 const useAuth = () => {
-  const { isLoggedIn, setIsLoggedIn, setPermissions, userData, setUserData } =
-    useContext(AuthContext)
+  const { isLoggedIn, setIsLoggedIn, userData, setUserData } = useContext(AuthContext)
+
+  const handleFetchProfile = useCallback(async () => {
+    const jwtToken = zxAuthCookies.getToken()?.token
+
+    const userMetaData = await decodeJWTToUserData(jwtToken)
+
+    if (userMetaData) {
+      setUserData?.(userMetaData)
+      LS.set(LOCAL_STORAGE_KEY_USER, userMetaData)
+    }
+  }, [])
 
   const handleLogin = useCallback(
-    (token, refreshToken) => {
-      zxAuthCookies.setToken(token, refreshToken)
+    async (token, refreshToken) => {
+      zxAuthCookies.setToken(token, refreshToken, ALLOWED_DOMAINS)
       setIsLoggedIn?.(true)
+
+      const userMetaData = await decodeJWTToUserData(token)
+
+      if (userMetaData) {
+        setUserData?.(userMetaData)
+        LS.set(LOCAL_STORAGE_KEY_USER, userMetaData)
+      }
     },
-    [setIsLoggedIn],
+    [setIsLoggedIn, setUserData],
   )
 
   const handleLogout = useCallback(async () => {
     await authLogout().catch()
     setIsLoggedIn?.(false)
-    zxAuthCookies.removeToken()
+
+    setUserData?.(null)
+    zxAuthCookies.removeToken(ALLOWED_DOMAINS)
+
     LS.remove(LOCAL_STORAGE_KEY_USER)
+
     await graphqlClient.clearStore()
   }, [setIsLoggedIn])
 
-  const userInfoStorage = useMemo(() => LS.load(LOCAL_STORAGE_KEY_USER), [])
+  const isPermissionGranted = useCallback(
+    (permission) => {
+      if (permission === 'ALL') return true
 
-  const loadUserProfileData = useCallback(async () => {
-    const { token } = zxAuthCookies.getToken()
-    try {
-      const userMetaData = await decodeJWTToUserData(token)
-      if (userMetaData) {
-        setUserData?.(userMetaData)
+      const permissions = userData?.userAccess?.permission
 
-        if (!userInfoStorage && !isEqual(userMetaData, userInfoStorage)) {
-          LS.set(LOCAL_STORAGE_KEY_USER, userMetaData)
-        }
-
-        setPermissions?.(userMetaData?.userAccess?.permission || [])
-      } else {
-        handleLogout()
-      }
-    } catch (err) {
-      handleLogout()
-    }
-  }, [setUserData, setPermissions, handleLogout])
-
-  const getUserInformation = useCallback(() => {
-    let user
-    try {
-      user = typeof userData === 'object' ? userData : JSON.parse(userData)
-    } catch (e) {} // eslint-disable-line no-empty
-    return user
-  }, [userData])
-
-  const getUserChannels = useCallback(() => {
-    const { token } = zxAuthCookies.getToken()
-    const userMetaData = decodeJWTToken(token)
-
-    return userMetaData?.channels || []
-  }, [])
+      return permissions?.includes(permission) || false
+    },
+    [userData],
+  )
 
   return {
-    getUserChannels,
-    getUserInformation,
+    handleFetchProfile,
     handleLogin,
     handleLogout,
     isLoggedIn,
-    loadUserProfileData,
+    isPermissionGranted,
     setIsLoggedIn,
     setUserData,
     token: zxAuthCookies.getToken()?.token || '',
     userData,
-    userInfoStorage,
   }
 }
 

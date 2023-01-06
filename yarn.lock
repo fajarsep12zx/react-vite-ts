@@ -3014,13 +3014,14 @@
   dependencies:
     tslib "^2.3.0"
 
-"@zebraxid/frontend-kit-auth@0.1.0":
-  version "0.1.0"
-  resolved "https://npm.pkg.github.com/download/@zebraxid/frontend-kit-auth/0.1.0/3dfe978803ceee28829488dcf2d6cff708ba5198#3dfe978803ceee28829488dcf2d6cff708ba5198"
-  integrity sha512-49lscMRWA+3Bz189QwEV7SYr4jjg/eLKs39zS3RtuOzO7q36r5H0TP/Q5hi3nm231ShE/AxJSM7rK/vF87NAZw==
+"@zebraxid/frontend-kit-auth@0.4.0":
+  version "0.4.0"
+  resolved "https://npm.pkg.github.com/download/@zebraxid/frontend-kit-auth/0.4.0/42ab5b634c8cca936e2baf808da2acc6c1f95b3a#42ab5b634c8cca936e2baf808da2acc6c1f95b3a"
+  integrity sha512-4Xqr49WvflaLJEExaoLVeM8QvOo0hplakLpXU3s62nkXJdhYJHIPHMB7oXCcRk6OwosyTp+FP41xmU8q5uq69Q==
   dependencies:
     "@apollo/client" "^3.2.9"
     cross-fetch "^3.0.6"
+    dayjs "^1.11.5"
     global "^4.4.0"
     graphql "^15.5.0"
     graphql-tag "^2.11.0"
@@ -4126,6 +4127,11 @@ date-fns@^1.27.2:
   version "1.30.1"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.30.1.tgz#2e71bf0b119153dbb4cc4e88d9ea5acfb50dc05c"
   integrity sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw==
+
+dayjs@^1.11.5:
+  version "1.11.7"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.7.tgz#4b296922642f70999544d1144a2c25730fce63e2"
+  integrity sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==
 
 debounce@^1.2.0:
   version "1.2.1"
