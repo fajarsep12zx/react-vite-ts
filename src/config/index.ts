@@ -1,6 +1,3 @@
-export const authHost = `${import.meta.env.VITE_AUTH_HOST}/query`
-export const graphQLHost = import.meta.env.VITE_GRAPHQL_HOST
-
 export const GRAPHQL_SERVER_HOST = {
   FMS: `${import.meta.env.VITE_GRAPHQL_HOST}/query`,
   IDM: `${import.meta.env.VITE_GRAPHQL_HOST_IDM}/query`,
