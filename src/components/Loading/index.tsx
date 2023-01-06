@@ -1,6 +1,7 @@
+import React, { memo } from 'react'
+
 import Box from '@mui/material/Box'
 import CircularProgress from '@mui/material/CircularProgress'
-import React, { memo } from 'react'
 
 interface Props {
   children?: React.ReactNode

@@ -1,6 +1,16 @@
 import './style.css'
 
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+  Button,
+} from '@mui/material'
 import { useRegisterSW } from 'virtual:pwa-register/react'
+
+import { formatDisplayDate } from '~/utils/date'
 
 function ReloadPrompt() {
   // replaced dynamically
@@ -8,10 +18,7 @@ function ReloadPrompt() {
   // replaced dyanmicaly
   const reloadSW = '__RELOAD_SW__'
 
-  console.log('RELOAD SW', reloadSW)
-
   const {
-    offlineReady: [offlineReady, setOfflineReady],
     needRefresh: [needRefresh, setNeedRefresh],
     updateServiceWorker,
   } = useRegisterSW({
@@ -38,33 +45,35 @@ function ReloadPrompt() {
   console.log('needRefresh', needRefresh)
 
   const close = () => {
-    setOfflineReady(false)
     setNeedRefresh(false)
   }
 
   return (
-    <div className="ReloadPrompt-container">
-      {(offlineReady || needRefresh) && (
-        <div className="ReloadPrompt-toast">
-          <div className="ReloadPrompt-message">
-            {offlineReady ? (
-              <span>App ready to work offline</span>
-            ) : (
-              <span>New content available, click on reload button to update.</span>
-            )}
-          </div>
-          {needRefresh && (
-            <button className="ReloadPrompt-toast-button" onClick={() => updateServiceWorker(true)}>
-              Reload
-            </button>
-          )}
-          <button className="ReloadPrompt-toast-button" onClick={() => close()}>
-            Close
-          </button>
-        </div>
-      )}
-      <div className="ReloadPrompt-date">{buildDate}</div>
-    </div>
+    <>
+      <Dialog
+        open={needRefresh}
+        aria-labelledby="update-app-dialog-title"
+        aria-describedby="update-app-dialog-description"
+        disableEscapeKeyDown
+      >
+        <DialogTitle>Update Application</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="update-app-dialog-description">
+            There is a new version available ({formatDisplayDate(buildDate, 'DD/MM/YYYY - hh:mm')}).
+            Do you want to reload page to update?
+            <br />
+            If you choose Update Later, the application will automatically update if you close the
+            window.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => close()}>Update Later</Button>
+          <Button onClick={() => updateServiceWorker(true)} color="primary" variant="contained">
+            Update Now
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </>
   )
 }
 

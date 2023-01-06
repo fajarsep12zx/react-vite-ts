@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
 
+import { Box } from '@mui/material'
+
 import ProtectedLayout from '~/components/Layout/Protected'
 import PublicLayout from '~/components/Layout/Public'
 
@@ -21,10 +23,10 @@ function App() {
   }, [isLoggedIn, userData, handleFetchProfile])
 
   return (
-    <>
+    <Box position="relative">
       {isLoggedIn ? <ProtectedLayout /> : <PublicLayout />}
       <ReloadPrompt />
-    </>
+    </Box>
   )
 }
 

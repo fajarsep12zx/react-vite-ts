@@ -20,6 +20,7 @@ export const fieldToTextField = ({
     error: showError,
     helperText: showError ? fieldError : helperText,
     disabled: disabled ?? form?.isSubmitting,
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     onBlur:
       onBlur ??

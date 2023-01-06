@@ -13,7 +13,33 @@ export default [
     title: 'Live Track',
     path: '/map',
     defaultPath: '/map',
-    component: <span>Live Track</span>,
+    component: (
+      <span>
+        Live Track Enter your credentials to access your account. Enter your credentials to access
+        your account. Enter your credentials to access your account. Enter your credentials to
+        access your account. Enter your credentials to access your account. Enter your credentials
+        to access your account. Enter your credentials to access your account. Enter your
+        credentials to access your account. Enter your credentials to access your account. Enter
+        your credentials to access your account. Enter your credentials to access your account.
+        Enter your credentials to access your account. Enter your credentials to access your
+        account. Enter your credentials to access your account. Enter your credentials to access
+        your account. Enter your credentials to access your account. Enter your credentials to
+        access your account. Enter your credentials to access your account. Enter your credentials
+        to access your account. Enter your credentials to access your account. Enter your
+        credentials to access your account. Enter your credentials to access your account. Enter
+        your credentials to access your account. Enter your credentials to access your account.
+        Enter your credentials to access your account. Enter your credentials to access your
+        account. Enter your credentials to access your account. Enter your credentials to access
+        your account. Enter your credentials to access your account. Enter your credentials to
+        access your account. Enter your credentials to access your account. Enter your credentials
+        to access your account. Enter your credentials to access your account. Enter your
+        credentials to access your account. Enter your credentials to access your account. Enter
+        your credentials to access your account. Enter your credentials to access your account.
+        Enter your credentials to access your account. Enter your credentials to access your
+        account. Enter your credentials to access your account. Enter your credentials to access
+        your account.
+      </span>
+    ),
     exact: false,
     withHeader: true,
     icon: <ReactSVG src="/public/icons/menu-icon/map.svg" />,

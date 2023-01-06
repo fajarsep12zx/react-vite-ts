@@ -58,7 +58,7 @@ const theme = createTheme({
       disabled: colors.DustyGrey,
     },
     background: {
-      default: colors.Gallery,
+      default: colors.White,
     },
     action: {
       disabled: colors.DustyGrey,

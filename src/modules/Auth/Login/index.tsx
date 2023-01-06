@@ -1,11 +1,8 @@
 import { memo } from 'react'
 
+import { Grid } from '@mui/material'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
-
-import EmailIcon from '@mui/icons-material/Email'
-import LockIcon from '@mui/icons-material/Lock'
-
 import { Formik, Form, Field } from 'formik'
 
 import CustomTextField from '~/components/Form/CustomTextField'
@@ -19,12 +16,15 @@ const Login = () => {
   const { classes } = useStyle()
 
   return (
-    <Box className={`${classes.container} ${classes.background}`}>
-      <Box height="100vh" className={classes.formContainer}>
-        <Box mb={6} data-testid="box-logo">
-          <img className={classes.logo} src="/images/xtrip_logo_color.png" alt="landing" />
-        </Box>
-        <Box data-testid="box-card" minWidth="25%" className={classes.whiteCardBox}>
+    <Grid
+      sx={{
+        height: '100vh',
+        overflow: 'hidden',
+      }}
+      container
+    >
+      <Grid md={5} item>
+        <Box alignContent="center" display="flex" flexDirection="column" data-testid="box-card">
           <Box className={classes.title} data-testid="box-title">
             Welcome Back
           </Box>
@@ -58,9 +58,6 @@ const Login = () => {
                     type="text"
                     placeholder="Enter your email"
                     component={CustomTextField}
-                    InputProps={{
-                      startAdornment: <EmailIcon className={classes.iconStyle} />,
-                    }}
                   />
                   <Field
                     data-testid="input-password"
@@ -69,9 +66,6 @@ const Login = () => {
                     type="password"
                     placeholder="Enter your password"
                     component={CustomTextField}
-                    InputProps={{
-                      startAdornment: <LockIcon className={classes.iconStyle} />,
-                    }}
                   />
                   <Button
                     data-testid="btn-submit-login"
@@ -83,30 +77,22 @@ const Login = () => {
                   >
                     Login
                   </Button>
-                  <Box mt={2}>
-                    {/* <ButtonSSO
-                      isSubmitting={isSubmitting}
-                      ssoLinks={data.memoSsoLink}
-                    /> */}
-                  </Box>
                 </Box>
               </Form>
             )}
           </Formik>
         </Box>
-        <Box className={classes.underTitle} mt={8}>
-          <span>Forgot your password?</span>
-          <span>
-            <a className={classes.resetPass} href="/">
-              Reset Password
-            </a>
-          </span>
-        </Box>
-      </Box>
-      <Box position="absolute" bottom={2} right={4} fontSize="xxs">
-        {process.env.VERSION}
-      </Box>
-    </Box>
+      </Grid>
+      <Grid md={7} item>
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          flex={1}
+          className={classes.background}
+        />
+      </Grid>
+    </Grid>
   )
 }
 
