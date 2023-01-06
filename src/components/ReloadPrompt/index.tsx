@@ -22,8 +22,6 @@ function ReloadPrompt() {
       if (reloadSW === 'true') {
         r &&
           setInterval(() => {
-            // eslint-disable-next-line no-console
-            console.log('Checking for sw update')
             r.update()
           }, 20000 /* 20s for testing purposes */)
       } else {
