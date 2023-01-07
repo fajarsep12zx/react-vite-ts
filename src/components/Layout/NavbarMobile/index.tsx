@@ -31,7 +31,7 @@ const NavbarMobile = ({ handleClickExpandMenu }: Props) => {
           </IconButton>
 
           {/* Image logo */}
-          <img alt="logo" className={classes.imgLogo} src="/public/brands/logo-fleeto-white.svg" />
+          <img alt="logo" className={classes.imgLogo} src="/brands/logo-fleeto-white.svg" />
         </Box>
       </Toolbar>
     </AppBar>
