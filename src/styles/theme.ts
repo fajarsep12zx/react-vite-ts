@@ -58,7 +58,7 @@ const theme = createTheme({
     },
     error: {
       contrastText: colors.White,
-      main: colors.red[600],
+      main: colors.red[500],
     },
     primary: {
       contrastText: colors.White,
@@ -69,7 +69,7 @@ const theme = createTheme({
       main: colors.neutral[900],
     },
     text: {
-      disabled: colors.Gray[400],
+      disabled: colors.neutral[100],
       primary: colors.neutral[900],
     },
   },
