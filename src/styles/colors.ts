@@ -1,3 +1,4 @@
+/* eslint-disable sort-keys */
 const palette = {
   blue: {
     25: '#ecf8ff',
