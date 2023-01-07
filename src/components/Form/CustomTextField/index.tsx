@@ -24,9 +24,9 @@ const CustomTextField = ({
   ...props
 }: CustomTextFieldProps) => {
   return (
-    <Box mb={labelText ? 6 : 0} px={labelText ? 6 : 0}>
+    <Box mb={labelText ? 3 : 0}>
       {labelText && (
-        <Box fontSize={fontSize[14]} mb={2}>
+        <Box fontSize={fontSize[14]} mb={0}>
           {labelText}
         </Box>
       )}
@@ -40,6 +40,7 @@ const CustomTextField = ({
           'data-testid': dataTestId,
         }}
         className={`${className} main-textfield`}
+        size="small"
         {...fieldToTextField(props)}
       >
         {children}

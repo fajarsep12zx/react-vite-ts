@@ -1,6 +1,7 @@
 import { createTheme, responsiveFontSizes } from '@mui/material/styles'
 
 import { colors as importedColors } from './colors'
+import '@mui/lab/themeAugmentation'
 
 export const fontSize = {
   10: '0.625rem',
@@ -34,11 +35,20 @@ const theme = createTheme({
         },
       },
     },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        notchedOutline: {
+          borderRadius: 4,
+          borderWidth: 2,
+          color: colors.neutral[100],
+        },
+        root: {
+          backgroundColor: colors.neutral[10],
+        },
+      },
+    },
   },
   palette: {
-    action: {
-      disabled: colors.DustyGrey,
-    },
     background: {
       default: colors.White,
     },
@@ -48,24 +58,19 @@ const theme = createTheme({
     },
     error: {
       contrastText: colors.White,
-      main: colors.TorchRed,
-    },
-    info: {
-      main: colors.PaleBlue,
+      main: colors.red[600],
     },
     primary: {
       contrastText: colors.White,
-      main: colors.DarkNavy,
+      main: colors.blue[300],
     },
     secondary: {
       contrastText: colors.White,
-      main: colors.HavelockBlue,
+      main: colors.neutral[900],
     },
-
     text: {
-      disabled: colors.DustyGrey,
-      primary: colors.Black,
-      secondary: colors.RiverBed,
+      disabled: colors.Gray[400],
+      primary: colors.neutral[900],
     },
   },
   // Set baseline width to 1920

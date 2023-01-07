@@ -1,8 +1,8 @@
 import { memo } from 'react'
 
+import { LoadingButton } from '@mui/lab'
 import { Grid } from '@mui/material'
 import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
 import { Formik, Form, Field } from 'formik'
 
 import CustomTextField from '~/components/Form/CustomTextField'
@@ -23,12 +23,21 @@ const Login = () => {
       }}
     >
       <Grid item md={5}>
-        <Box alignContent="center" data-testid="box-card" display="flex" flexDirection="column">
+        <Box
+          alignContent="center"
+          alignItems="center"
+          data-testid="box-card"
+          display="flex"
+          flexDirection="column"
+          height="100%"
+          justifyContent="center"
+          width="100%"
+        >
           <Box className={classes.title} data-testid="box-title">
-            Welcome Back
+            Sign in to XMINE
           </Box>
           <Box className={classes.subTitle} data-testid="box-subtile">
-            Enter your credentials to access your account.
+            Enter your details to get sign in to your account
           </Box>
 
           {data.error && (
@@ -38,48 +47,57 @@ const Login = () => {
             </Box>
           )}
 
-          <Formik
-            initialValues={{
-              keepSignIn: false,
-              password: '',
-              username: '',
-            }}
-            validationSchema={loginSchema}
-            onSubmit={methods.handleSubmit}
-          >
-            {({ isSubmitting }) => (
-              <Form>
-                <Box className={classes.formSection}>
-                  <Field
-                    component={CustomTextField}
-                    data-testid="input-username"
-                    data-testid-helpertext="error-username"
-                    name="username"
-                    placeholder="Enter your email"
-                    type="text"
-                  />
-                  <Field
-                    component={CustomTextField}
-                    data-testid="input-password"
-                    data-testid-helpertext="error-password"
-                    name="password"
-                    placeholder="Enter your password"
-                    type="password"
-                  />
-                  <Button
-                    className="btn-rounded"
-                    color="secondary"
-                    data-testid="btn-submit-login"
-                    disabled={isSubmitting}
-                    type="submit"
-                    variant="contained"
-                  >
-                    Login
-                  </Button>
-                </Box>
-              </Form>
-            )}
-          </Formik>
+          <Box width="60%">
+            <Formik
+              initialValues={{
+                keepSignIn: false,
+                password: '',
+                username: '',
+              }}
+              validationSchema={loginSchema}
+              onSubmit={methods.handleSubmit}
+            >
+              {({ isSubmitting }) => (
+                <Form>
+                  <Box className={classes.formSection}>
+                    <Field
+                      fullWidth
+                      component={CustomTextField}
+                      data-testid="input-username"
+                      data-testid-helpertext="error-username"
+                      labelText="Email"
+                      name="username"
+                      placeholder="Enter your email"
+                      type="text"
+                    />
+                    <Field
+                      fullWidth
+                      component={CustomTextField}
+                      data-testid="input-password"
+                      data-testid-helpertext="error-password"
+                      labelText="Password"
+                      name="password"
+                      placeholder="Enter your password"
+                      type="password"
+                    />
+                    <LoadingButton
+                      fullWidth
+                      sx={{
+                        mt: 10,
+                      }}
+                      color="primary"
+                      data-testid="btn-submit-login"
+                      loading={isSubmitting}
+                      type="submit"
+                      variant="contained"
+                    >
+                      Sign in
+                    </LoadingButton>
+                  </Box>
+                </Form>
+              )}
+            </Formik>
+          </Box>
         </Box>
       </Grid>
       <Grid item md={7}>

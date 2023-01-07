@@ -53,7 +53,7 @@
     "react/react-in-jsx-scope": 0,
     "react/require-default-props": [0],
     "semi": "off",
-    "sort-keys": ["error", "asc", { "caseSensitive": true, "natural": false, "minKeys": 2 }],
+    "sort-keys": ["error", "asc", { "caseSensitive": true, "natural": true, "minKeys": 4 }],
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": "error",
     "prettier/prettier": [
