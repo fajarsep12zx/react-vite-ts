@@ -8,6 +8,7 @@ import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
+import { SnackbarProvider } from 'notistack'
 import ReactDOM from 'react-dom/client'
 
 import graphQLClient from '~/utils/apollo/client'
@@ -27,7 +28,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <CssBaseline />
           <Global styles={globalCss} />
           <ApolloProvider client={graphQLClient}>
-            <App />
+            <SnackbarProvider>
+              <App />
+            </SnackbarProvider>
           </ApolloProvider>
         </MuiThemeProvider>
       </AuthProvider>

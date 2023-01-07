@@ -2,7 +2,7 @@
 import { css } from '@emotion/react'
 
 import { colors } from './colors'
-import theme from './theme'
+import theme, { fontSize } from './theme'
 
 const globalCss = css({
   '#root': {
@@ -35,6 +35,10 @@ const globalCss = css({
       display: 'none',
       'content-visibility': 'none',
     },
+  },
+  'snack-icon': {
+    fontSize: fontSize[24],
+    color: colors.White,
   },
 })
 
