@@ -17,14 +17,13 @@ const Login = () => {
 
   return (
     <Grid
+      container
       sx={{
         height: '100vh',
-        overflow: 'hidden',
       }}
-      container
     >
-      <Grid md={5} item>
-        <Box alignContent="center" display="flex" flexDirection="column" data-testid="box-card">
+      <Grid item md={5}>
+        <Box alignContent="center" data-testid="box-card" display="flex" flexDirection="column">
           <Box className={classes.title} data-testid="box-title">
             Welcome Back
           </Box>
@@ -52,28 +51,28 @@ const Login = () => {
               <Form>
                 <Box className={classes.formSection}>
                   <Field
+                    component={CustomTextField}
                     data-testid="input-username"
                     data-testid-helpertext="error-username"
                     name="username"
-                    type="text"
                     placeholder="Enter your email"
-                    component={CustomTextField}
+                    type="text"
                   />
                   <Field
+                    component={CustomTextField}
                     data-testid="input-password"
                     data-testid-helpertext="error-password"
                     name="password"
-                    type="password"
                     placeholder="Enter your password"
-                    component={CustomTextField}
+                    type="password"
                   />
                   <Button
-                    data-testid="btn-submit-login"
-                    variant="contained"
-                    color="secondary"
                     className="btn-rounded"
+                    color="secondary"
+                    data-testid="btn-submit-login"
                     disabled={isSubmitting}
                     type="submit"
+                    variant="contained"
                   >
                     Login
                   </Button>
@@ -83,13 +82,13 @@ const Login = () => {
           </Formik>
         </Box>
       </Grid>
-      <Grid md={7} item>
+      <Grid item md={7}>
         <Box
-          display="flex"
-          justifyContent="center"
           alignItems="center"
-          flex={1}
           className={classes.background}
+          display="flex"
+          flex={1}
+          justifyContent="center"
         />
       </Grid>
     </Grid>

@@ -12,14 +12,14 @@ const ProtectedLayout = () => {
   return (
     <Box display="flex">
       <Sidebar routes={routes} />
-      <Suspense fallback={<Loading height="100%" loading />}>
+      <Suspense fallback={<Loading loading height="100%" />}>
         <Routes>
           {routes.map((route) => (
-            <Route key={route.path} path={route.path} element={route.component} />
+            <Route element={route.component} key={route.path} path={route.path} />
           ))}
           <Route element={<Navigate to="/map" />} path="/" />
           <Route element={<NotFound />} path="/404" />
-          <Route path="*" element={<Navigate to="/404" />} />
+          <Route element={<Navigate to="/404" />} path="*" />
         </Routes>
       </Suspense>
     </Box>

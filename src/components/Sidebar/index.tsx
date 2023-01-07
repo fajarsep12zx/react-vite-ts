@@ -26,25 +26,25 @@ const Sidebar = ({ routes }: Props) => {
 
   return (
     <Drawer
-      variant="permanent"
-      open={data.open}
       className={classes.drawer}
       classes={{ paper: classes.drawerPaper }}
+      open={data.open}
+      variant="permanent"
     >
       <div className={classes.drawerHead}>
         <Box style={{ display: data.open ? 'block' : 'none' }}>
-          <img className={classes.logo} src="/images/sidebar_logo.png" alt="landing" />
+          <img alt="landing" className={classes.logo} src="/images/sidebar_logo.png" />
         </Box>
         <IconButton className={classes.expandButton} onClick={methods.handleDrawer}>
           {data.open ? (
             <Icon
-              fontSize="small"
               className={clsx('fas fa-angle-double-left', classes.iconStyle)}
+              fontSize="small"
             />
           ) : (
             <Icon
-              fontSize="small"
               className={clsx('fas fa-angle-double-right', classes.iconStyle)}
+              fontSize="small"
             />
           )}
         </IconButton>
@@ -52,6 +52,12 @@ const Sidebar = ({ routes }: Props) => {
       <List>
         {routes.map(({ id, title, icon, path, defaultPath }) => (
           <ListItem
+            button
+            disableRipple
+            className={clsx(classes.listItem, {
+              [classes.activeItem]: data.currentPath === path || data.firstPath === id,
+            })}
+            key={id}
             onClick={() => {
               if (defaultPath) {
                 methods.pushHistory(defaultPath)
@@ -59,12 +65,6 @@ const Sidebar = ({ routes }: Props) => {
                 methods.pushHistory(path)
               }
             }}
-            key={id}
-            button
-            disableRipple
-            className={clsx(classes.listItem, {
-              [classes.activeItem]: data.currentPath === path || data.firstPath === id,
-            })}
           >
             <ListItemIcon className={classes.listItemIcon}>{icon}</ListItemIcon>
             <ListItemText className={classes.listItemText}>

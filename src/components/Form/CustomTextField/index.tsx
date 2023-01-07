@@ -31,14 +31,14 @@ const CustomTextField = ({
         </Box>
       )}
       <TextField
-        inputProps={{
-          'data-testid': dataTestId,
-        }}
         FormHelperTextProps={
           {
             'data-testid': dataTestIdHelperText,
           } as any
         }
+        inputProps={{
+          'data-testid': dataTestId,
+        }}
         className={`${className} main-textfield`}
         {...fieldToTextField(props)}
       >

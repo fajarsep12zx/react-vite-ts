@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import { memo } from 'react'
 
 import {
   Popover,
@@ -17,7 +18,6 @@ import useAuth from '~/utils/auth/useAuth'
 
 import useCustom from './hooks'
 import useStyles from './style'
-import { memo } from 'react'
 
 const MenuPopover = ({ open }) => {
   const {
@@ -33,22 +33,22 @@ const MenuPopover = ({ open }) => {
   return (
     <>
       <List>
-        <ListItem className={classes.listItem} button disableRipple onClick={handleProfile}>
+        <ListItem button disableRipple className={classes.listItem} onClick={handleProfile}>
           <ListItemIcon className={`${classes.listItemIcon} ${classes.listItemConfigIcon}`}>
             <Icon
-              fontSize="small"
               className={clsx('fas fa-user', classes.logo, classes.listItemIcon)}
+              fontSize="small"
             />
           </ListItemIcon>
           <ListItemText className={classes.listItemText}>
             <div className={classes.itemText}>Profile</div>
           </ListItemText>
         </ListItem>
-        <ListItem className={classes.listItem} onClick={handleLogout} button disableRipple>
+        <ListItem button disableRipple className={classes.listItem} onClick={handleLogout}>
           <ListItemIcon className={`${classes.listItemIcon} ${classes.listItemConfigIcon}`}>
             <Icon
-              fontSize="small"
               className={clsx('fas fa-sign-out-alt', classes.logo, classes.listItemIcon)}
+              fontSize="small"
             />
           </ListItemIcon>
           <ListItemText className={classes.listItemText}>
@@ -56,14 +56,10 @@ const MenuPopover = ({ open }) => {
           </ListItemText>
         </ListItem>
       </List>
-      <Typography variant="subtitle2" className={classes.footerTitle}>
+      <Typography className={classes.footerTitle} variant="subtitle2">
         Powered by Xtrips
       </Typography>
       <Popover
-        id={popoverShown ? 'simple-popover' : undefined}
-        open={popoverShown}
-        anchorEl={anchorEl}
-        onClose={handleClose}
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'right',
@@ -72,6 +68,10 @@ const MenuPopover = ({ open }) => {
           vertical: 'top',
           horizontal: 'right',
         }}
+        anchorEl={anchorEl}
+        id={popoverShown ? 'simple-popover' : undefined}
+        open={popoverShown}
+        onClose={handleClose}
       >
         <Box px={2} py={3}>
           <MenuItem onClick={handleLogout}>

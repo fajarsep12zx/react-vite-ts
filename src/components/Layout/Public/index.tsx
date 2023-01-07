@@ -20,10 +20,10 @@ const PublicLayout = () => {
           <Routes>
             {
               publicRoute.map(({ id, path, component: Component }) => 
-              <Route key={id} path={path} element={Component}  />
+              <Route element={Component} key={id} path={path}  />
               )
             }
-             <Route path='*' element={<Navigate to='/' />} />
+             <Route element={<Navigate to='/' />} path='*' />
           </Routes>
         </Suspense>
       </>

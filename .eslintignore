@@ -2,3 +2,5 @@ coverage
 build
 dist
 node_modules
+scripts
+lint-staged.config.js

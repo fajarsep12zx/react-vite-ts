@@ -49,10 +49,10 @@ function ReloadPrompt() {
   return (
     <>
       <Dialog
-        open={needRefresh}
-        aria-labelledby="update-app-dialog-title"
-        aria-describedby="update-app-dialog-description"
         disableEscapeKeyDown
+        aria-describedby="update-app-dialog-description"
+        aria-labelledby="update-app-dialog-title"
+        open={needRefresh}
       >
         <DialogTitle>Update Application</DialogTitle>
         <DialogContent>
@@ -66,7 +66,7 @@ function ReloadPrompt() {
         </DialogContent>
         <DialogActions>
           <Button onClick={() => close()}>Update Later</Button>
-          <Button onClick={() => updateServiceWorker(true)} color="primary" variant="contained">
+          <Button color="primary" variant="contained" onClick={() => updateServiceWorker(true)}>
             Update Now
           </Button>
         </DialogActions>

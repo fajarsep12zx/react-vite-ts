@@ -23,7 +23,7 @@ const useAuth = () => {
       setUserData?.(userMetaData)
       LS.set(LOCAL_STORAGE_KEY_USER, userMetaData)
     }
-  }, [])
+  }, [setUserData])
 
   const handleLogin = useCallback(
     async (token, refreshToken) => {
@@ -50,7 +50,7 @@ const useAuth = () => {
     LS.remove(LOCAL_STORAGE_KEY_USER)
 
     await graphqlClient.clearStore()
-  }, [setIsLoggedIn])
+  }, [setUserData, setIsLoggedIn])
 
   const isPermissionGranted = useCallback(
     (permission) => {

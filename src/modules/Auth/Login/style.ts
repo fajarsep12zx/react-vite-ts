@@ -14,12 +14,13 @@ const style = makeStyles()((theme) => ({
     width: '10.417vw',
   },
   background: {
-    background: "url('/images/login-background.png')",
+    background: "url('/images/login-bg.png')",
     backgroundColor: '#F2F6FF',
     backgroundPosition: 'center',
     backgroundSize: '100% 100%',
     flexBasis: '100%',
     maxWidth: '100%',
+    height: '100%',
   },
   title: {
     fontSize: fontSize[20],

@@ -49,7 +49,7 @@ const useCustom = () => {
 
   useEffect(() => {
     loadListSsoLink()
-  }, [])
+  }, [loadListSsoLink])
 
   return {
     data: {
