@@ -14,12 +14,11 @@ export const fieldToTextField = ({
 }: BaseProps) => {
   const fieldError = getIn(form.errors, field.name)
   const showError = getIn(form.touched, field.name) && !!fieldError
-
   return {
-    variant,
-    error: showError,
-    helperText: showError ? fieldError : helperText,
     disabled: disabled ?? form?.isSubmitting,
+    error: showError,
+
+    helperText: showError ? fieldError : helperText,
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     onBlur:
@@ -30,5 +29,6 @@ export const fieldToTextField = ({
       },
     ...field,
     ...props,
+    variant,
   }
 }

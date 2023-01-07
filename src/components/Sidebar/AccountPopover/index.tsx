@@ -61,12 +61,12 @@ const MenuPopover = ({ open }) => {
       </Typography>
       <Popover
         anchorOrigin={{
-          vertical: 'bottom',
           horizontal: 'right',
+          vertical: 'bottom',
         }}
         transformOrigin={{
-          vertical: 'top',
           horizontal: 'right',
+          vertical: 'top',
         }}
         anchorEl={anchorEl}
         id={popoverShown ? 'simple-popover' : undefined}

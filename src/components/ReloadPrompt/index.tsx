@@ -20,6 +20,10 @@ function ReloadPrompt() {
     needRefresh: [needRefresh, setNeedRefresh],
     updateServiceWorker,
   } = useRegisterSW({
+    onRegisterError(error: any) {
+      // eslint-disable-next-line no-console
+      console.log('SW registration error', error)
+    },
     onRegisteredSW(swUrl: any, r: any) {
       // eslint-disable-next-line no-console
       console.log(`Service Worker at: ${swUrl}`)
@@ -33,10 +37,6 @@ function ReloadPrompt() {
         // eslint-disable-next-line prefer-template,no-console
         console.log('SW Registered: ' + r)
       }
-    },
-    onRegisterError(error: any) {
-      // eslint-disable-next-line no-console
-      console.log('SW registration error', error)
     },
   })
 

@@ -29,9 +29,9 @@ const useCustom = () => {
   return {
     anchorEl,
     handleClose,
+    handleDirectMenu,
     handlePopoverShown,
     handleProfile,
-    handleDirectMenu,
     popoverShown,
   }
 }

@@ -7,53 +7,55 @@ interface IProps {
 }
 
 const style = makeStyles<IProps>()((theme, { open }) => ({
-  logo: {
+  footerTitle: {
     color: colors.White,
-    paddingTop: 1,
+    display: open ? 'block' : 'none',
+    fontWeight: theme.typography.fontWeightLight,
+    marginBottom: theme.spacing(5),
+    paddingLeft: theme.spacing(3),
+    paddingRight: theme.spacing(3),
+  },
+  itemDesc: {
+    fontSize: fontSize[12],
+  },
+  itemText: {
+    fontSize: fontSize[16],
   },
   listItem: {
-    minHeight: 48,
-    justifyContent: open ? 'initial' : 'center',
-    maxWidth: open ? '90%' : '80%',
-    padding: 0,
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2),
-    marginBottom: theme.spacing(1),
-    color: colors.PigeonPost,
-    marginLeft: open ? theme.spacing(2) : theme.spacing(2),
-    marginRight: open ? theme.spacing(2) : theme.spacing(2),
     '&:hover': {
       backgroundColor: colors.Denim2,
       borderRadius: '6px',
       color: colors.White,
       justifyContent: 'center',
     },
-  },
-  listItemIcon: {
-    minWidth: 0,
-    marginRight: 0,
-    justifyContent: 'center',
-    color: 'inherit',
+    color: colors.PigeonPost,
+    justifyContent: open ? 'initial' : 'center',
+    marginBottom: theme.spacing(1),
+    marginLeft: open ? theme.spacing(2) : theme.spacing(2),
+    marginRight: open ? theme.spacing(2) : theme.spacing(2),
+    maxWidth: open ? '90%' : '80%',
+    minHeight: 48,
+    padding: 0,
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
   },
   listItemConfigIcon: {
     marginRight: open ? theme.spacing(3) : 0,
   },
+  listItemIcon: {
+    color: 'inherit',
+    justifyContent: 'center',
+    marginRight: 0,
+    minWidth: 0,
+  },
+
   listItemText: {
     display: open ? 'block' : 'none',
   },
-  footerTitle: {
-    display: open ? 'block' : 'none',
+
+  logo: {
     color: colors.White,
-    fontWeight: theme.typography.fontWeightLight,
-    paddingLeft: theme.spacing(3),
-    paddingRight: theme.spacing(3),
-    marginBottom: theme.spacing(5),
-  },
-  itemText: {
-    fontSize: fontSize[16],
-  },
-  itemDesc: {
-    fontSize: fontSize[12],
+    paddingTop: 1,
   },
 }))
 

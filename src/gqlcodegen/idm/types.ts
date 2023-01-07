@@ -10,11 +10,11 @@ export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
 }
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: string
-  String: string
   Boolean: boolean
-  Int: number
   Float: number
+  ID: string
+  Int: number
+  String: string
 }
 
 export enum AccessControl {
@@ -26,32 +26,32 @@ export enum AccessControl {
 
 export type AttributePolicyPayload = {
   ID: Scalars['String']
-  name: Scalars['String']
-  productID: Scalars['String']
-  orgID: Scalars['String']
-  moduleCode: Scalars['String']
   attribute: Scalars['String']
+  moduleCode: Scalars['String']
+  name: Scalars['String']
+  orgID: Scalars['String']
+  productID: Scalars['String']
 }
 
 export type AttributePolicyResponse = {
-  id: Scalars['String']
-  name: Scalars['String']
-  product: Scalars['String']
-  organization: Scalars['String']
-  module: Scalars['String']
   attribute: Scalars['String']
+  id: Scalars['String']
+  module: Scalars['String']
+  name: Scalars['String']
+  organization: Scalars['String']
+  product: Scalars['String']
 }
 
 export type AuditListParam = {
-  search: Scalars['String']
   date: Scalars['String']
   limit: Scalars['Int']
   page: Scalars['Int']
+  search: Scalars['String']
 }
 
 export type AuditListResponse = {
-  pageInfo: PageInfo
   auditRecords: Array<AuditRecord>
+  pageInfo: PageInfo
 }
 
 export type AuditQuery = {
@@ -63,16 +63,16 @@ export type AuditQueryListAuditArgs = {
 }
 
 export type AuditRecord = {
+  action: Scalars['String']
+  auditDetails: AuditRecordDetails
+  email: Scalars['String']
   id: Scalars['String']
+  organization: Scalars['String']
+  product: Scalars['String']
+  role: Scalars['String']
+  status: Scalars['String']
   timestamp: Scalars['String']
   userName: Scalars['String']
-  email: Scalars['String']
-  role: Scalars['String']
-  action: Scalars['String']
-  status: Scalars['String']
-  product: Scalars['String']
-  organization: Scalars['String']
-  auditDetails: AuditRecordDetails
 }
 
 export type AuditRecordDetails = {
@@ -80,17 +80,17 @@ export type AuditRecordDetails = {
 }
 
 export type Auth = {
-  listSSOLink: SsoLinkResponse
-  listProduct: ListResponse
-  listProductOrganization: ListResponse
-  listOrganization: ListResponse
-  listPermission: ListResponse
-  listRole: ListResponse
-  listRolePermission: ListResponse
-  listUser: ListResponse
   getProfile: ProfileResponse
   listAttributePolicy: ListResponse
   listCasbinPolicy: ListResponse
+  listOrganization: ListResponse
+  listPermission: ListResponse
+  listProduct: ListResponse
+  listProductOrganization: ListResponse
+  listRole: ListResponse
+  listRolePermission: ListResponse
+  listSSOLink: SsoLinkResponse
+  listUser: ListResponse
 }
 
 export type AuthListProductArgs = {
@@ -136,39 +136,39 @@ export enum Auth_Provider {
 }
 
 export type AuthMutation = {
-  createProduct: ProductResponse
-  updateProduct: ProductResponse
-  deleteProduct: ProductResponse
-  createProductOrganization: ProductResponse
-  updateProductOrganization: ProductResponse
-  deleteProductOrganization: ProductResponse
-  createOrganization: Response
-  updateOrganization: Response
-  deleteOrganization: Response
-  bulkAddGroupMember: Response
-  deleteGroup: Response
-  createPermission: Response
-  updatePermission: Response
-  deletePermission: Response
-  createRole: Response
-  updateRole: Response
-  deleteRole: Response
-  createRolePermission: Response
-  updateRolePermission: Response
-  deleteRolePermission: Response
-  createUser: Response
-  updateUser: Response
-  deleteUser: Response
-  changePassword: Response
-  resetPassword: Response
-  oneTimePassword: Response
-  updateProfile: Response
   addCasbinPolicy: Response
-  removeCasbinPolicy: Response
-  validateCasbinPolicy: Response
+  bulkAddGroupMember: Response
+  changePassword: Response
   createAttributePolicy: Response
-  updateAttributePolicy: Response
+  createOrganization: Response
+  createPermission: Response
+  createProduct: ProductResponse
+  createProductOrganization: ProductResponse
+  createRole: Response
+  createRolePermission: Response
+  createUser: Response
   deleteAttributePolicy: Response
+  deleteGroup: Response
+  deleteOrganization: Response
+  deletePermission: Response
+  deleteProduct: ProductResponse
+  deleteProductOrganization: ProductResponse
+  deleteRole: Response
+  deleteRolePermission: Response
+  deleteUser: Response
+  oneTimePassword: Response
+  removeCasbinPolicy: Response
+  resetPassword: Response
+  updateAttributePolicy: Response
+  updateOrganization: Response
+  updatePermission: Response
+  updateProduct: ProductResponse
+  updateProductOrganization: ProductResponse
+  updateProfile: Response
+  updateRole: Response
+  updateRolePermission: Response
+  updateUser: Response
+  validateCasbinPolicy: Response
 }
 
 export type AuthMutationCreateProductArgs = {
@@ -176,14 +176,14 @@ export type AuthMutationCreateProductArgs = {
 }
 
 export type AuthMutationUpdateProductArgs = {
-  id: Scalars['String']
-  data?: Maybe<ProductPayload>
   changes: Scalars['String']
+  data?: Maybe<ProductPayload>
+  id: Scalars['String']
 }
 
 export type AuthMutationDeleteProductArgs = {
-  id: Scalars['String']
   changes: Scalars['String']
+  id: Scalars['String']
 }
 
 export type AuthMutationCreateProductOrganizationArgs = {
@@ -191,14 +191,14 @@ export type AuthMutationCreateProductOrganizationArgs = {
 }
 
 export type AuthMutationUpdateProductOrganizationArgs = {
-  id: Scalars['String']
-  data?: Maybe<ProductOrganizationPayload>
   changes: Scalars['String']
+  data?: Maybe<ProductOrganizationPayload>
+  id: Scalars['String']
 }
 
 export type AuthMutationDeleteProductOrganizationArgs = {
-  id?: Maybe<ProductOrganizationPayload>
   changes: Scalars['String']
+  id?: Maybe<ProductOrganizationPayload>
 }
 
 export type AuthMutationCreateOrganizationArgs = {
@@ -206,14 +206,14 @@ export type AuthMutationCreateOrganizationArgs = {
 }
 
 export type AuthMutationUpdateOrganizationArgs = {
-  id: Scalars['String']
-  data?: Maybe<OrganizationPayload>
   changes: Scalars['String']
+  data?: Maybe<OrganizationPayload>
+  id: Scalars['String']
 }
 
 export type AuthMutationDeleteOrganizationArgs = {
-  id: Scalars['String']
   changes: Scalars['String']
+  id: Scalars['String']
 }
 
 export type AuthMutationBulkAddGroupMemberArgs = {
@@ -221,8 +221,8 @@ export type AuthMutationBulkAddGroupMemberArgs = {
 }
 
 export type AuthMutationDeleteGroupArgs = {
-  id: Scalars['String']
   changes: Scalars['String']
+  id: Scalars['String']
 }
 
 export type AuthMutationCreatePermissionArgs = {
@@ -230,14 +230,14 @@ export type AuthMutationCreatePermissionArgs = {
 }
 
 export type AuthMutationUpdatePermissionArgs = {
-  id: Scalars['String']
-  data?: Maybe<PermissionPayload>
   changes: Scalars['String']
+  data?: Maybe<PermissionPayload>
+  id: Scalars['String']
 }
 
 export type AuthMutationDeletePermissionArgs = {
-  id: Scalars['String']
   changes: Scalars['String']
+  id: Scalars['String']
 }
 
 export type AuthMutationCreateRoleArgs = {
@@ -245,14 +245,14 @@ export type AuthMutationCreateRoleArgs = {
 }
 
 export type AuthMutationUpdateRoleArgs = {
-  id: Scalars['String']
-  data?: Maybe<RolePayload>
   changes: Scalars['String']
+  data?: Maybe<RolePayload>
+  id: Scalars['String']
 }
 
 export type AuthMutationDeleteRoleArgs = {
-  id: Scalars['String']
   changes: Scalars['String']
+  id: Scalars['String']
 }
 
 export type AuthMutationCreateRolePermissionArgs = {
@@ -260,16 +260,16 @@ export type AuthMutationCreateRolePermissionArgs = {
 }
 
 export type AuthMutationUpdateRolePermissionArgs = {
-  roleid: Scalars['String']
-  permissionid: Scalars['String']
-  data?: Maybe<RolePermissionPayload>
   changes: Scalars['String']
+  data?: Maybe<RolePermissionPayload>
+  permissionid: Scalars['String']
+  roleid: Scalars['String']
 }
 
 export type AuthMutationDeleteRolePermissionArgs = {
-  roleid: Scalars['String']
-  permissionid: Scalars['String']
   changes: Scalars['String']
+  permissionid: Scalars['String']
+  roleid: Scalars['String']
 }
 
 export type AuthMutationCreateUserArgs = {
@@ -277,14 +277,14 @@ export type AuthMutationCreateUserArgs = {
 }
 
 export type AuthMutationUpdateUserArgs = {
-  id: Scalars['String']
-  data?: Maybe<UserInfoPayload>
   changes: Scalars['String']
+  data?: Maybe<UserInfoPayload>
+  id: Scalars['String']
 }
 
 export type AuthMutationDeleteUserArgs = {
-  id: Scalars['String']
   changes: Scalars['String']
+  id: Scalars['String']
 }
 
 export type AuthMutationChangePasswordArgs = {
@@ -300,8 +300,8 @@ export type AuthMutationOneTimePasswordArgs = {
 }
 
 export type AuthMutationUpdateProfileArgs = {
-  data?: Maybe<UpdateProfilePayload>
   changes: Scalars['String']
+  data?: Maybe<UpdateProfilePayload>
 }
 
 export type AuthMutationAddCasbinPolicyArgs = {
@@ -321,13 +321,13 @@ export type AuthMutationCreateAttributePolicyArgs = {
 }
 
 export type AuthMutationUpdateAttributePolicyArgs = {
-  data?: Maybe<AttributePolicyPayload>
   changes: Scalars['String']
+  data?: Maybe<AttributePolicyPayload>
 }
 
 export type AuthMutationDeleteAttributePolicyArgs = {
-  data?: Maybe<AttributePolicyPayload>
   changes: Scalars['String']
+  data?: Maybe<AttributePolicyPayload>
 }
 
 export type BulkAddGroupMemberPayload = {
@@ -336,35 +336,35 @@ export type BulkAddGroupMemberPayload = {
 }
 
 export type CasbinPolicyPayload = {
-  app: Scalars['String']
-  module: Scalars['String']
-  subject: Scalars['String']
-  attr: Scalars['String']
-  objID: Scalars['String']
   act: Scalars['String']
+  app: Scalars['String']
+  attr: Scalars['String']
+  module: Scalars['String']
+  objID: Scalars['String']
+  subject: Scalars['String']
 }
 
 export type CasbinPolicyResponse = {
-  id: Scalars['String']
-  name: Scalars['String']
-  product: Scalars['String']
-  module: Scalars['String']
-  attribute: Scalars['String']
   act: Scalars['String']
+  attribute: Scalars['String']
+  id: Scalars['String']
+  module: Scalars['String']
+  name: Scalars['String']
   objID: Scalars['String']
+  product: Scalars['String']
   subject: Scalars['String']
   userData: UserResponse
 }
 
 export type ChangePasswordPayload = {
-  userID: Scalars['String']
-  oldPass: Scalars['String']
   newPass: Scalars['String']
+  oldPass: Scalars['String']
+  userID: Scalars['String']
 }
 
 export type ChildOrganizationResponse = {
-  orgID: Scalars['String']
   orgCode: Scalars['String']
+  orgID: Scalars['String']
   orgName: Scalars['String']
 }
 
@@ -384,16 +384,16 @@ export enum ContentType {
 }
 
 export type CrudResponse = {
-  status: Scalars['Int']
   message: Scalars['String']
+  status: Scalars['Int']
 }
 
 export type EditNotificationPermissionParam = {
   id: Scalars['String']
   notificationType: Scalars['String']
-  serviceType: Array<Maybe<NotificationServiceTypePermissionParam>>
   productID: Scalars['String']
   recipients: NotificationPermissionRecipientsParam
+  serviceType: Array<Maybe<NotificationServiceTypePermissionParam>>
 }
 
 export enum FieldName {
@@ -406,31 +406,31 @@ export enum FieldName {
 }
 
 export type GroupListParam = {
-  page: Scalars['Int']
-  limit: Scalars['Int']
   groupID: Scalars['String']
   groupName: Scalars['String']
+  limit: Scalars['Int']
+  page: Scalars['Int']
 }
 
 export type InAppMessage = {
+  content: Scalars['String']
+  createdat: Scalars['String']
+  createdby: Scalars['String']
   id: Scalars['String']
   product: Scalars['String']
-  sender: Scalars['String']
-  recipient: Scalars['String']
-  subject: Scalars['String']
-  content: Scalars['String']
   read: Scalars['Boolean']
-  createdby: Scalars['String']
-  createdat: Scalars['String']
+  recipient: Scalars['String']
+  sender: Scalars['String']
+  subject: Scalars['String']
 }
 
 export type InappMessageParam = {
-  product: Scalars['String']
   date: Scalars['String']
-  page: Scalars['Int']
-  limit: Scalars['Int']
-  subject: Scalars['String']
   id: Scalars['String']
+  limit: Scalars['Int']
+  page: Scalars['Int']
+  product: Scalars['String']
+  subject: Scalars['String']
 }
 
 export type InappMutation = {
@@ -442,9 +442,9 @@ export type InappMutationReadMessageArgs = {
 }
 
 export type InappNotifResponse = {
-  sendMessageResponse: CrudResponse
   messages: Array<InAppMessage>
   pageInfo: PageInfo
+  sendMessageResponse: CrudResponse
 }
 
 export type InappQuery = {
@@ -475,26 +475,26 @@ export type InappSubcriptionGetMessageArgs = {
 export type ListCasbinPolicyParam = {
   app?: Maybe<Scalars['String']>
   module?: Maybe<Scalars['String']>
-  subject: Scalars['String']
   objID?: Maybe<Scalars['String']>
+  subject: Scalars['String']
 }
 
 export type ListOrganizationParam = {
-  search?: Maybe<SearchParam>
   isChild: Scalars['Boolean']
+  search?: Maybe<SearchParam>
 }
 
 export type ListResponse = {
-  pageInfo: PageInfo
-  listProductResponse: ProductResponse
-  listProductOrganizationResponse: ProductResponse
-  listOrganizationResponse: Array<OrganizationResponse>
-  listPermissionResponse: Array<PermissionResponse>
-  listRoleResponse: Array<RoleResponse>
-  listRolePermissionResponse: Array<RolePermissionResponse>
-  listUserResponse: Array<UserResponse>
   listAttributePolicy: Array<AttributePolicyResponse>
   listCasbinPolicy: Array<CasbinPolicyResponse>
+  listOrganizationResponse: Array<OrganizationResponse>
+  listPermissionResponse: Array<PermissionResponse>
+  listProductOrganizationResponse: ProductResponse
+  listProductResponse: ProductResponse
+  listRolePermissionResponse: Array<RolePermissionResponse>
+  listRoleResponse: Array<RoleResponse>
+  listUserResponse: Array<UserResponse>
+  pageInfo: PageInfo
 }
 
 export type LogListDateRange = {
@@ -503,17 +503,17 @@ export type LogListDateRange = {
 }
 
 export type LogListParam = {
-  product: Scalars['String']
   channel: Scalars['String']
   content: Scalars['String']
   daterange: LogListDateRange
+  product: Scalars['String']
 }
 
 export type Mutation = {
   auth: AuthMutation
-  token: TokenMutation
-  notification: NotificationMutation
   inapp: InappMutation
+  notification: NotificationMutation
+  token: TokenMutation
 }
 
 export type NotificationContentRequest = {
@@ -522,16 +522,16 @@ export type NotificationContentRequest = {
 }
 
 export type NotificationGroupList = {
+  description: Scalars['String']
   id: Scalars['String']
   name: Scalars['String']
-  description: Scalars['String']
 }
 
 export type NotificationGroupMemberList = {
-  id: Scalars['String']
-  groupID: Scalars['String']
-  name: Scalars['String']
   email: Scalars['String']
+  groupID: Scalars['String']
+  id: Scalars['String']
+  name: Scalars['String']
 }
 
 export type NotificationGroupMemberPayload = {
@@ -545,34 +545,34 @@ export type NotificationGroupParam = {
 }
 
 export type NotificationGroupPayload = {
-  name: Scalars['String']
   description: Scalars['String']
+  name: Scalars['String']
 }
 
 export type NotificationListParam = {
-  serviceType: Scalars['String']
+  companyId: Scalars['String']
   content: Scalars['String']
   isReadAt: Scalars['String']
-  senderId: Scalars['String']
   recipientId: Scalars['String']
-  companyId: Scalars['String']
+  senderId: Scalars['String']
+  serviceType: Scalars['String']
 }
 
 export type NotificationListResponse = {
-  pageInfo: PageInfo
-  permission: Array<NotificationPermissionList>
-  log: Array<NotificationLogList>
   group: Array<NotificationGroupList>
   groupMember: Array<NotificationGroupMemberList>
+  log: Array<NotificationLogList>
+  pageInfo: PageInfo
+  permission: Array<NotificationPermissionList>
 }
 
 export type NotificationLogList = {
-  id: Scalars['String']
+  content: Scalars['String']
   createdAt: Scalars['String']
+  id: Scalars['String']
+  notificationType: Scalars['String']
   product: Scalars['String']
   recipient: Scalars['String']
-  content: Scalars['String']
-  notificationType: Scalars['String']
   serviceType: Scalars['String']
   status: Scalars['String']
 }
@@ -580,9 +580,9 @@ export type NotificationLogList = {
 export type NotificationMutation = {
   createNotificationGroup: NotificationResponse
   createNotificationGroupMember: NotificationResponse
-  editNotificationPermission: NotificationResponse
   deleteNotificationGroup: NotificationResponse
   deleteNotificationGroupMember: NotificationResponse
+  editNotificationPermission: NotificationResponse
 }
 
 export type NotificationMutationCreateNotificationGroupArgs = {
@@ -609,19 +609,19 @@ export type NotificationMutationDeleteNotificationGroupMemberArgs = {
 export type NotificationPermissionList = {
   id: Scalars['String']
   notificationType: Scalars['String']
-  serviceType: Array<Maybe<NotificationServiceTypePermission>>
   product: NotificationProductPermission
   recipients: NotificationPermissionRecipients
+  serviceType: Array<Maybe<NotificationServiceTypePermission>>
 }
 
 export type NotificationPermissionRecipients = {
-  users: Array<NotificationPermissionRecipientUsers>
   group: NotificationPermissionRecipientUsers
+  users: Array<NotificationPermissionRecipientUsers>
 }
 
 export type NotificationPermissionRecipientsParam = {
-  users: Array<Scalars['String']>
   group: Scalars['String']
+  users: Array<Scalars['String']>
 }
 
 export type NotificationPermissionRecipientUsers = {
@@ -635,10 +635,10 @@ export type NotificationProductPermission = {
 }
 
 export type NotificationQuery = {
-  listNotificationPermission: NotificationListResponse
-  listNotificationLog: NotificationListResponse
   listNotificationGroup: NotificationListResponse
   listNotificationGroupMember: NotificationListResponse
+  listNotificationLog: NotificationListResponse
+  listNotificationPermission: NotificationListResponse
 }
 
 export type NotificationQueryListNotificationPermissionArgs = {
@@ -658,14 +658,14 @@ export type NotificationQueryListNotificationGroupMemberArgs = {
 }
 
 export type NotificationRequest = {
+  cc?: Maybe<Array<Scalars['String']>>
+  contentType: ContentType
+  keyValContent?: Maybe<Array<NotificationContentRequest>>
+  notificationType: Scalars['String']
+  plainContent?: Maybe<Scalars['String']>
   productID: Scalars['String']
   serviceType: Scalars['String']
-  notificationType: Scalars['String']
-  cc?: Maybe<Array<Scalars['String']>>
   to: Array<Scalars['String']>
-  plainContent?: Maybe<Scalars['String']>
-  keyValContent?: Maybe<Array<NotificationContentRequest>>
-  contentType: ContentType
 }
 
 export type NotificationResponse = {
@@ -673,68 +673,68 @@ export type NotificationResponse = {
 }
 
 export type NotificationRetryParam = {
-  serviceType: Scalars['String']
+  ccId: Scalars['String']
+  companyId: Scalars['String']
   content: Scalars['String']
+  recipientId: Scalars['String']
   retryCount: Scalars['Int']
   senderId: Scalars['String']
-  ccId: Scalars['String']
-  recipientId: Scalars['String']
-  companyId: Scalars['String']
+  serviceType: Scalars['String']
 }
 
 export type NotificationServiceTypePermission = {
-  type: Scalars['String']
   isMandatory: Scalars['Boolean']
+  type: Scalars['String']
 }
 
 export type NotificationServiceTypePermissionParam = {
-  type: Scalars['String']
   isMandatory: Scalars['Boolean']
+  type: Scalars['String']
 }
 
 export type NotificationTemplateParam = {
-  subject: Scalars['String']
-  serviceType: Scalars['String']
   notificationType: Scalars['String']
+  serviceType: Scalars['String']
+  subject: Scalars['String']
   template: Scalars['String']
 }
 
 export type OneTimePasswordPayload = {
   id: Scalars['String']
-  to: Scalars['String']
   otp: Scalars['String']
   otpAction: Scalars['String']
+  to: Scalars['String']
 }
 
 export type OrganizationPayload = {
-  code: Scalars['String']
-  name: Scalars['String']
-  info: Scalars['String']
   address: Scalars['String']
+  authProvider: Auth_Provider
+  code: Scalars['String']
+  info: Scalars['String']
+  isChild: Scalars['Boolean']
+  name: Scalars['String']
   phone: Scalars['String']
   web: Scalars['String']
-  isChild: Scalars['Boolean']
-  authProvider: Auth_Provider
 }
 
 export type OrganizationResponse = {
-  orgID: Scalars['String']
-  orgCode: Scalars['String']
-  orgName: Scalars['String']
-  orgInfo: Scalars['String']
-  orgAddress: Scalars['String']
-  orgPhone: Scalars['String']
-  orgWeb: Scalars['String']
-  isChild: Scalars['Boolean']
+  authProvider: Scalars['String']
   childOrg: Array<ChildOrganizationResponse>
   clientAdminRoleID: Scalars['String']
-  authProvider: Scalars['String']
+  isChild: Scalars['Boolean']
+  orgAddress: Scalars['String']
+  orgCode: Scalars['String']
+  orgID: Scalars['String']
+  orgInfo: Scalars['String']
+  orgName: Scalars['String']
+  orgPhone: Scalars['String']
+  orgWeb: Scalars['String']
 }
 
 export type PageInfo = {
-  total: Scalars['Int']
   limit: Scalars['Int']
   page: Scalars['Int']
+  total: Scalars['Int']
   totalUnread: Scalars['Int']
 }
 
@@ -769,30 +769,30 @@ export type ProductModule = {
 }
 
 export type ProductOrganization = {
-  productId: Scalars['String']
-  productName: Scalars['String']
   orgId: Scalars['String']
   organizationName: Scalars['String']
   productDescription: Scalars['String']
+  productId: Scalars['String']
+  productName: Scalars['String']
 }
 
 export type ProductOrganizationPayload = {
-  productId: Scalars['String']
   orgId: Scalars['String']
+  productId: Scalars['String']
 }
 
 export type ProductPayload = {
-  name: Scalars['String']
   description: Scalars['String']
+  name: Scalars['String']
   path: Scalars['String']
 }
 
 export type ProductProduct = {
-  id: Scalars['String']
-  name: Scalars['String']
   description: Scalars['String']
-  path: Scalars['String']
+  id: Scalars['String']
   modules: Array<ProductModule>
+  name: Scalars['String']
+  path: Scalars['String']
 }
 
 export type ProductResponse = {
@@ -802,69 +802,69 @@ export type ProductResponse = {
 }
 
 export type ProfileResponse = {
-  userID: Scalars['String']
-  userName: Scalars['String']
+  authProvider: Scalars['String']
+  enabled: Scalars['Boolean']
   id: Scalars['String']
   isPublic: Scalars['Boolean']
-  enabled: Scalars['Boolean']
+  location: Scalars['String']
+  mustChangePwd: Scalars['Boolean']
+  phone: Scalars['String']
   userAccess: UserAccess
+  userID: Scalars['String']
+  userName: Scalars['String']
   userOrg: UserOrg
   userProd: Array<ProdOrg>
-  location: Scalars['String']
-  phone: Scalars['String']
-  mustChangePwd: Scalars['Boolean']
-  authProvider: Scalars['String']
 }
 
 export type Query = {
-  auth: Auth
-  notification: NotificationQuery
-  inapp: InappQuery
   audit: AuditQuery
+  auth: Auth
+  inapp: InappQuery
+  notification: NotificationQuery
 }
 
 export type RequestPayload = {
-  userID: Scalars['String']
   password: Scalars['String']
   token: Scalars['String']
+  userID: Scalars['String']
 }
 
 export type ResetPasswordPayload = {
   email: Scalars['String']
-  resetCode: Scalars['String']
   newPass: Scalars['String']
+  resetCode: Scalars['String']
 }
 
 export type Response = {
+  id: Scalars['String']
   message: Scalars['String']
   status: Scalars['Int']
-  id: Scalars['String']
 }
 
 export type RolePayload = {
   name: Scalars['String']
-  type: RoleType
   permissionID: Array<Scalars['String']>
+  type: RoleType
 }
 
 export type RolePermissionPayload = {
-  roleID: Scalars['String']
   permissionID: Scalars['String']
+  roleID: Scalars['String']
 }
 
 export type RolePermissionResponse = {
-  roleID: Scalars['String']
-  roleName: Scalars['String']
   permissionID: Scalars['String']
   permissionName: Scalars['String']
   productID: Scalars['String']
   productName: Scalars['String']
+  roleID: Scalars['String']
+  roleName: Scalars['String']
 }
 
 export type RoleResponse = {
+  info: Scalars['String']
   roleID: Scalars['String']
   roleName: Scalars['String']
-  info: Scalars['String']
   type: Scalars['String']
 }
 
@@ -875,20 +875,20 @@ export enum RoleType {
 }
 
 export type SearchField = {
-  fieldName: FieldName
   comparison: Comparison
+  fieldName: FieldName
   value: Scalars['String']
 }
 
 export type SearchParam = {
-  search: SearchField
   limit: Scalars['Int']
   page: Scalars['Int']
+  search: SearchField
 }
 
 export type SsoLink = {
-  name: Scalars['String']
   link: Scalars['String']
+  name: Scalars['String']
 }
 
 export type SsoLinkResponse = {
@@ -900,9 +900,9 @@ export type Subscription = {
 }
 
 export type TokenMutation = {
-  requestToken: TokenResponse
-  refreshToken: TokenResponse
   logoutToken: TokenResponse
+  refreshToken: TokenResponse
+  requestToken: TokenResponse
 }
 
 export type TokenMutationRequestTokenArgs = {
@@ -918,76 +918,76 @@ export type TokenMutationLogoutTokenArgs = {
 }
 
 export type TokenResponse = {
-  userID: Scalars['String']
-  userName: Scalars['String']
-  id: Scalars['String']
-  token: Scalars['String']
-  refreshToken: Scalars['String']
+  enabled: Scalars['Boolean']
   expireAt: Scalars['Int']
+  id: Scalars['String']
+  isPublic: Scalars['Boolean']
   issuedAt: Scalars['Int']
   issuer: Scalars['String']
-  isPublic: Scalars['Boolean']
-  enabled: Scalars['Boolean']
+  message: Scalars['String']
+  refreshToken: Scalars['String']
+  token: Scalars['String']
   userAccess: UserAccess
+  userID: Scalars['String']
+  userName: Scalars['String']
   userOrg: UserOrg
   userProd: Array<ProdOrg>
-  message: Scalars['String']
 }
 
 export type UpdateProfilePayload = {
-  name: Scalars['String']
   location: Scalars['String']
+  name: Scalars['String']
   phone: Scalars['String']
 }
 
 export type UserAccess = {
+  permission: Array<Scalars['String']>
   roleID: Scalars['String']
   roleName: Scalars['String']
   roleType: Scalars['String']
-  permission: Array<Scalars['String']>
 }
 
 export type UserInfoPayload = {
-  id: Scalars['String']
-  name: Scalars['String']
-  roleid: Scalars['String']
-  orgid: Scalars['String']
-  location: Scalars['String']
-  phone: Scalars['String']
   enabled: Scalars['Boolean']
+  id: Scalars['String']
+  location: Scalars['String']
+  name: Scalars['String']
+  orgid: Scalars['String']
+  phone: Scalars['String']
+  roleid: Scalars['String']
 }
 
 export type UserOrg = {
-  orgID: Scalars['String']
   orgCode: Scalars['String']
+  orgID: Scalars['String']
   orgName: Scalars['String']
-  parentOrgID: Scalars['String']
   parentOrgCode: Scalars['String']
+  parentOrgID: Scalars['String']
   parentOrgName: Scalars['String']
   prodOrg: Array<ProdOrg>
 }
 
 export type UserPayload = {
-  id: Scalars['String']
-  name: Scalars['String']
-  password: Scalars['String']
-  roleid: Scalars['String']
-  orgid: Scalars['String']
-  location: Scalars['String']
-  phone: Scalars['String']
   enabled: Scalars['Boolean']
+  id: Scalars['String']
+  location: Scalars['String']
+  name: Scalars['String']
+  orgid: Scalars['String']
+  password: Scalars['String']
+  phone: Scalars['String']
+  roleid: Scalars['String']
 }
 
 export type UserResponse = {
   ID: Scalars['String']
-  userId: Scalars['String']
-  name: Scalars['String']
-  password: Scalars['String']
-  role: RoleResponse
-  location: Scalars['String']
-  phone: Scalars['String']
-  organization: OrganizationResponse
-  product: Array<ProductProduct>
   enabled: Scalars['Boolean']
   lastActivityUser: Scalars['Int']
+  location: Scalars['String']
+  name: Scalars['String']
+  organization: OrganizationResponse
+  password: Scalars['String']
+  phone: Scalars['String']
+  product: Array<ProductProduct>
+  role: RoleResponse
+  userId: Scalars['String']
 }

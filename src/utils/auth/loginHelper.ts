@@ -8,8 +8,8 @@ import * as LS from '~/utils/localStorage'
 export const authLogin = (username, password) =>
   zxAuthClient
     .getRequestToken(GRAPHQL_SERVER_HOST.IDM, {
-      username,
       password,
+      username,
     })
     .catch((e) => JSON.parse(e.message))
 
@@ -53,16 +53,16 @@ export const decodeJWTToUserData = async (token) => {
       return {
         ...userTokenData,
         ID: profileData?.id,
-        userID: profileData?.userID,
-        userName: profileData?.userName,
-        userAccess: profileData?.userAccess,
-        userOrg: profileData?.userOrg,
-        userProd: profileData?.userProd,
+        authProvider: profileData?.authProvider,
         enabled: profileData?.enabled,
         location: profileData?.location,
         mustChangePwd: profileData?.mustChangePwd,
         phone: profileData?.phone,
-        authProvider: profileData?.authProvider,
+        userAccess: profileData?.userAccess,
+        userID: profileData?.userID,
+        userName: profileData?.userName,
+        userOrg: profileData?.userOrg,
+        userProd: profileData?.userProd,
       }
     }
   }

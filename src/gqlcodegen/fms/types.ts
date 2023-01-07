@@ -10,11 +10,11 @@ export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
 }
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: string
-  String: string
   Boolean: boolean
-  Int: number
   Float: number
+  ID: string
+  Int: number
+  String: string
   Upload: any
 }
 
@@ -74,8 +74,8 @@ export type DeviceModelsData = {
 }
 
 export type DeviceModelsListResponse = {
-  pagination?: Maybe<PaginationResult>
   data: Array<DeviceModelsData>
+  pagination?: Maybe<PaginationResult>
 }
 
 export type Devices = {
@@ -125,23 +125,23 @@ export enum DevicesFilterType {
 }
 
 export type DevicesListParam = {
-  search?: Maybe<Scalars['String']>
-  filterBy?: Maybe<DevicesFilterType>
   QCFilter?: Maybe<QcFilterType>
+  filterBy?: Maybe<DevicesFilterType>
   pagination?: Maybe<PaginationParam>
+  search?: Maybe<Scalars['String']>
 }
 
 export type DevicesListResponse = {
-  pagination?: Maybe<PaginationResult>
-  lastUpdate: Scalars['String']
   data: Array<DevicesData>
+  lastUpdate: Scalars['String']
+  pagination?: Maybe<PaginationResult>
 }
 
 export type DevicesMutation = {
-  deleteDevices: CrudResponse
-  updateDevice: CrudResponse
   assignDevices: AssignDevicesResponse
+  deleteDevices: CrudResponse
   singleUpload: File
+  updateDevice: CrudResponse
 }
 
 export type DevicesMutationDeleteDevicesArgs = {
@@ -183,13 +183,13 @@ export type File = {
 
 export type HistoryParam = {
   ID: Scalars['String']
-  startDate: Scalars['String']
   endDate: Scalars['String']
+  startDate: Scalars['String']
 }
 
 export type InputData = {
-  name: Scalars['String']
   fields: Array<FieldInput>
+  name: Scalars['String']
 }
 
 export type LastPositionData = {
@@ -206,10 +206,10 @@ export enum LastPositionFilterType {
 }
 
 export type LastPositionListParam = {
-  search?: Maybe<Scalars['String']>
   filterBy?: Maybe<LastPositionFilterType>
   orgID?: Maybe<Scalars['String']>
   pagination?: Maybe<PaginationParam>
+  search?: Maybe<Scalars['String']>
 }
 
 export type LastPositionResponse = {
@@ -218,25 +218,25 @@ export type LastPositionResponse = {
 }
 
 export type ListParam = {
-  search?: Maybe<Scalars['String']>
   pagination?: Maybe<PaginationParam>
+  search?: Maybe<Scalars['String']>
 }
 
 export type ModelListParam = {
-  search?: Maybe<Scalars['String']>
   fleetTypeID?: Maybe<Scalars['String']>
   pagination?: Maybe<PaginationParam>
+  search?: Maybe<Scalars['String']>
 }
 
 export type Mutation = {
   commands: CommandsMutation
-  vehicles: VehiclesMutation
   devices: DevicesMutation
+  vehicles: VehiclesMutation
 }
 
 export type OutputData = {
-  name: Scalars['String']
   fields: Array<Field>
+  name: Scalars['String']
 }
 
 export type PaginationParam = {
@@ -246,11 +246,11 @@ export type PaginationParam = {
 }
 
 export type PaginationResult = {
-  first: Scalars['Int']
   before: Scalars['Int']
   current: Scalars['Int']
-  next: Scalars['Int']
+  first: Scalars['Int']
   last: Scalars['Int']
+  next: Scalars['Int']
   perPage: Scalars['Int']
   totalPage: Scalars['Int']
   totalRecord: Scalars['Int']
@@ -261,6 +261,7 @@ export type PositionData = {
   course: Scalars['Int']
   deviceTime: Scalars['String']
   ignition: Scalars['Boolean']
+  imei: Scalars['String']
   latitude: Scalars['Float']
   longitude: Scalars['Float']
   movement: Scalars['Boolean']
@@ -269,7 +270,6 @@ export type PositionData = {
   protocol: Scalars['String']
   serverTime: Scalars['String']
   speed: Scalars['Int']
-  imei: Scalars['String']
   status: Scalars['String']
 }
 
@@ -285,9 +285,9 @@ export enum QcFilterType {
 }
 
 export type Query = {
+  devices: Devices
   rules: Rules
   vehicles: Vehicles
-  devices: Devices
 }
 
 export type ReportData = {
@@ -302,8 +302,8 @@ export type ReportData = {
 }
 
 export type ReportListResponse = {
-  pagination?: Maybe<PaginationResult>
   data: Array<ReportData>
+  pagination?: Maybe<PaginationResult>
 }
 
 export type ReportParam = {
@@ -326,23 +326,23 @@ export type RulesResponse = {
 }
 
 export type TripData = {
-  startTime: Scalars['String']
+  distance: Scalars['String']
+  duration: Scalars['String']
+  endCoordinate: Scalars['String']
   endTime: Scalars['String']
   startCoordinate: Scalars['String']
-  endCoordinate: Scalars['String']
-  duration: Scalars['String']
-  distance: Scalars['String']
+  startTime: Scalars['String']
 }
 
 export type TripHistoryResponse = {
-  startTime: Scalars['String']
-  endTime: Scalars['String']
-  duration: Scalars['String']
-  distance: Scalars['Float']
-  startCapacity: Scalars['Int']
-  endCapacity: Scalars['Int']
   batteryConsumption: Scalars['Int']
+  distance: Scalars['Float']
+  duration: Scalars['String']
+  endCapacity: Scalars['Int']
+  endTime: Scalars['String']
   positions: Array<PositionData>
+  startCapacity: Scalars['Int']
+  startTime: Scalars['String']
 }
 
 export type UserResponse = {
@@ -381,9 +381,9 @@ export type VehicleLastPositionData = {
 }
 
 export type VehicleListParam = {
-  search?: Maybe<Scalars['String']>
   filterBy?: Maybe<VehicleFilterType>
   pagination?: Maybe<PaginationParam>
+  search?: Maybe<Scalars['String']>
 }
 
 export type VehicleModelData = {
@@ -403,8 +403,8 @@ export type VehicleParam = {
   fleetModels: Scalars['String']
   fleetName: Scalars['String']
   licensePlate: Scalars['String']
-  vinNO: Scalars['String']
   make: Scalars['String']
+  vinNO: Scalars['String']
   year: Scalars['String']
 }
 
@@ -466,8 +466,8 @@ export type VehiclesDetailResponse = {
 }
 
 export type VehiclesListResponse = {
-  pagination?: Maybe<PaginationResult>
   data: Array<VehicleData>
+  pagination?: Maybe<PaginationResult>
 }
 
 export type VehiclesMutation = {
@@ -502,9 +502,9 @@ export type VehiclesMutationUpdateVehiclesArgs = {
 
 export type VehicleTypesData = {
   ID: Scalars['String']
-  name: Scalars['String']
-  description: Scalars['String']
   active: Scalars['Boolean']
+  description: Scalars['String']
+  name: Scalars['String']
 }
 
 export type VehicleTypesResponse = {

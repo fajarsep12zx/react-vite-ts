@@ -5,10 +5,10 @@ import * as Types from '../types'
 
 const defaultOptions = {}
 export type ListDevicesQueryVariables = Types.Exact<{
-  search: Types.Scalars['String']
-  pagination: Types.PaginationParam
-  filterBy: Types.DevicesFilterType
   QCFilter: Types.QcFilterType
+  filterBy: Types.DevicesFilterType
+  pagination: Types.PaginationParam
+  search: Types.Scalars['String']
 }>
 
 export type ListDevicesQuery = {
@@ -40,11 +40,6 @@ export type DetailDevicesQueryVariables = Types.Exact<{
 export type DetailDevicesQuery = {
   devices: {
     detailDevices: {
-      vehicle?: Types.Maybe<
-        Pick<Types.VehicleData, 'vinNO' | 'licensePlate' | 'fleetName' | 'fleetModels'> & {
-          properties?: Types.Maybe<Array<Pick<Types.Properties, 'field' | 'value'>>>
-        }
-      >
       device?: Types.Maybe<
         Pick<
           Types.DevicesData,
@@ -52,6 +47,11 @@ export type DetailDevicesQuery = {
         > & {
           properties?: Types.Maybe<Array<Pick<Types.Properties, 'field' | 'value'>>>
           tags?: Types.Maybe<Array<Pick<Types.Properties, 'field' | 'value'>>>
+        }
+      >
+      vehicle?: Types.Maybe<
+        Pick<Types.VehicleData, 'vinNO' | 'licensePlate' | 'fleetName' | 'fleetModels'> & {
+          properties?: Types.Maybe<Array<Pick<Types.Properties, 'field' | 'value'>>>
         }
       >
     }
@@ -86,9 +86,9 @@ export type DeleteDevicesMutation = {
 }
 
 export type UpdateDevicesMutationVariables = Types.Exact<{
+  bluetoothName: Types.Scalars['String']
   id: Types.Scalars['String']
   sim: Types.Scalars['String']
-  bluetoothName: Types.Scalars['String']
 }>
 
 export type UpdateDevicesMutation = {

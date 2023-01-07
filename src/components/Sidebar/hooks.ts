@@ -21,11 +21,11 @@ const useCustom = () => {
 
   return {
     data: {
-      open,
       currentPath,
-      firstPath,
       detail,
+      firstPath,
       id,
+      open,
     },
     methods: {
       handleDrawer,

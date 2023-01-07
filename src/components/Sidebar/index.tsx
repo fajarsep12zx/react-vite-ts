@@ -17,6 +17,7 @@ import useCustom from './hooks'
 import useStyles from './style'
 
 interface Props {
+  A: any
   routes: any
 }
 

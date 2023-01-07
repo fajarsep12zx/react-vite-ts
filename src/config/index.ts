@@ -16,8 +16,8 @@ export const CHANNEL_KEY = {
 }
 
 export const graphqlDefaultOptions = {
-  pollInterval: 1000 * 60 * 30, // 30 Minutes
   notifyOnNetworkStatusChange: true,
+  pollInterval: 1000 * 60 * 30, // 30 Minutes
 }
 
 export const blacklistedUser = import.meta.env.VITE_BLACKLISTED_USER

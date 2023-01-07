@@ -9,79 +9,53 @@ import { ReactSVG } from 'react-svg'
 
 export default [
   {
-    id: 'map',
-    title: 'Live Track',
-    path: '/map',
+    component: <span>Live Track </span>,
     defaultPath: '/map',
-    component: (
-      <span>
-        Live Track Enter your credentials to access your account. Enter your credentials to access
-        your account. Enter your credentials to access your account. Enter your credentials to
-        access your account. Enter your credentials to access your account. Enter your credentials
-        to access your account. Enter your credentials to access your account. Enter your
-        credentials to access your account. Enter your credentials to access your account. Enter
-        your credentials to access your account. Enter your credentials to access your account.
-        Enter your credentials to access your account. Enter your credentials to access your
-        account. Enter your credentials to access your account. Enter your credentials to access
-        your account. Enter your credentials to access your account. Enter your credentials to
-        access your account. Enter your credentials to access your account. Enter your credentials
-        to access your account. Enter your credentials to access your account. Enter your
-        credentials to access your account. Enter your credentials to access your account. Enter
-        your credentials to access your account. Enter your credentials to access your account.
-        Enter your credentials to access your account. Enter your credentials to access your
-        account. Enter your credentials to access your account. Enter your credentials to access
-        your account. Enter your credentials to access your account. Enter your credentials to
-        access your account. Enter your credentials to access your account. Enter your credentials
-        to access your account. Enter your credentials to access your account. Enter your
-        credentials to access your account. Enter your credentials to access your account. Enter
-        your credentials to access your account. Enter your credentials to access your account.
-        Enter your credentials to access your account. Enter your credentials to access your
-        account. Enter your credentials to access your account. Enter your credentials to access
-        your account.
-      </span>
-    ),
     exact: false,
-    withHeader: true,
     icon: <ReactSVG src="/icons/menu-icon/map.svg" />,
+    id: 'map',
+    path: '/map',
+    title: 'Live Track',
+    withHeader: true,
   },
   {
-    id: 'playback',
-    title: 'Play Back',
-    path: '/playback/:tab',
-    defaultPath: '/playback/trip',
     component: <span>Trip</span>,
+    defaultPath: '/playback/trip',
     exact: false,
-    withHeader: true,
     icon: <ReactSVG src="/icons/menu-icon/playback.svg" />,
+    id: 'playback',
+    path: '/playback/:tab',
+    title: 'Play Back',
+    withHeader: true,
   },
   {
-    id: 'devices',
-    title: 'Devices',
-    path: '/devices',
+    component: <span>Live Track</span>,
     defaultPath: '/devices',
-    component: <span>Live Track</span>,
     exact: false,
-    withHeader: true,
     icon: <ReactSVG src="/icons/menu-icon/devices.svg" />,
+    id: 'devices',
+    path: '/devices',
+    title: 'Devices',
+    withHeader: true,
   },
   {
-    id: 'assets',
-    title: 'Assets',
-    path: '/assets',
+    component: <span>Live Track</span>,
     defaultPath: '/assets',
-    component: <span>Live Track</span>,
     exact: false,
-    withHeader: true,
     icon: <ReactSVG src="/icons/menu-icon/assets.svg" />,
+    id: 'assets',
+    path: '/assets',
+    title: 'Assets',
+    withHeader: true,
   },
   {
-    id: 'groups',
-    title: 'Groups',
-    path: '/groups',
-    defaultPath: '/groups',
     component: <span>Live Track</span>,
+    defaultPath: '/groups',
     exact: false,
-    withHeader: true,
     icon: <ReactSVG src="/icons/menu-icon/groups.svg" />,
+    id: 'groups',
+    path: '/groups',
+    title: 'Groups',
+    withHeader: true,
   },
 ]

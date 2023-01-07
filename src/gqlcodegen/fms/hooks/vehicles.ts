@@ -18,8 +18,8 @@ export type VehicleDataFragmentFragment = Pick<
   | 'ID'
   | 'status'
 > & {
-  tags?: Types.Maybe<Array<Pick<Types.Properties, 'field' | 'value'>>>
   properties?: Types.Maybe<Array<Pick<Types.Properties, 'field' | 'value'>>>
+  tags?: Types.Maybe<Array<Pick<Types.Properties, 'field' | 'value'>>>
 }
 
 export type VehiclePositionFragmentFragment = Pick<
@@ -42,10 +42,10 @@ export type VehiclePositionFragmentFragment = Pick<
 }
 
 export type LastPositionListQueryVariables = Types.Exact<{
-  search: Types.Scalars['String']
-  pagination: Types.PaginationParam
   filterBy?: Types.Maybe<Types.LastPositionFilterType>
   orgID?: Types.Maybe<Types.Scalars['String']>
+  pagination: Types.PaginationParam
+  search: Types.Scalars['String']
 }>
 
 export type LastPositionListQuery = {
@@ -54,9 +54,9 @@ export type LastPositionListQuery = {
       data: Array<
         Pick<Types.LastPositionData, 'ID'> & {
           data?: Types.Maybe<{
+            position: VehiclePositionFragmentFragment
             vehicle: Pick<Types.VehicleData, 'fleetTypeID' | 'fleetModelsID'> &
               VehicleDataFragmentFragment
-            position: VehiclePositionFragmentFragment
           }>
         }
       >
@@ -86,8 +86,8 @@ export type LastPositionAssetOptionsQuery = {
 
 export type TripHistoryQueryVariables = Types.Exact<{
   ID: Types.Scalars['String']
-  startDate: Types.Scalars['String']
   endDate: Types.Scalars['String']
+  startDate: Types.Scalars['String']
 }>
 
 export type TripHistoryQuery = {
@@ -168,8 +168,8 @@ export type GetReportQuery = {
 }
 
 export type ListReportQueryVariables = Types.Exact<{
-  search: Types.Scalars['String']
   pagination: Types.PaginationParam
+  search: Types.Scalars['String']
 }>
 
 export type ListReportQuery = {
@@ -192,9 +192,9 @@ export type ListReportQuery = {
 }
 
 export type ListVehiclesQueryVariables = Types.Exact<{
-  search: Types.Scalars['String']
   filterBy: Types.VehicleFilterType
   pagination: Types.PaginationParam
+  search: Types.Scalars['String']
 }>
 
 export type ListVehiclesQuery = {
@@ -215,8 +215,8 @@ export type ListVehiclesQuery = {
           | 'fleetName'
           | 'status'
         > & {
-          tags?: Types.Maybe<Array<Pick<Types.Properties, 'field' | 'value'>>>
           properties?: Types.Maybe<Array<Pick<Types.Properties, 'field' | 'value'>>>
+          tags?: Types.Maybe<Array<Pick<Types.Properties, 'field' | 'value'>>>
         }
       >
     }
@@ -224,9 +224,9 @@ export type ListVehiclesQuery = {
 }
 
 export type RequestReportMutationVariables = Types.Exact<{
+  date: Types.Scalars['String']
   fleetID: Types.Scalars['String']
   type: Types.Scalars['String']
-  date: Types.Scalars['String']
 }>
 
 export type RequestReportMutation = {

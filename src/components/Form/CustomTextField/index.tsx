@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import { memo } from 'react'
 
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
@@ -8,18 +8,18 @@ import { fontSize } from '~/styles/theme'
 import { BaseProps, fieldToTextField } from './helper'
 
 interface CustomTextFieldProps extends BaseProps {
-  'data-testid-helpertext'?: string
-  'data-testid': string
   children: React.ReactNode
   className?: string
+  'data-testid': string
+  'data-testid-helpertext'?: string
   labelText?: string
 }
 
 const CustomTextField = ({
-  'data-testid-helpertext': dataTestIdHelperText = '',
-  'data-testid': dataTestId,
   children,
   className,
+  'data-testid-helpertext': dataTestIdHelperText = '',
+  'data-testid': dataTestId,
   labelText = '',
   ...props
 }: CustomTextFieldProps) => {

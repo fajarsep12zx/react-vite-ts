@@ -7,10 +7,10 @@ import { decodeJWTToUserData } from './loginHelper'
 interface AuthContextProps {
   isLoggedIn: boolean
   permissions: any
-  userData: any
   setIsLoggedIn?: (isLoggin: boolean) => void
   setPermissions?: (permissions: any) => void
   setUserData?: (userData: any) => void
+  userData: any
 }
 
 export const AuthContext = React.createContext<Partial<AuthContextProps>>({})
@@ -28,11 +28,11 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     <AuthContext.Provider
       value={{
         isLoggedIn,
-        setIsLoggedIn,
         permissions,
+        setIsLoggedIn,
         setPermissions,
-        userData,
         setUserData,
+        userData,
       }}
     >
       {children}

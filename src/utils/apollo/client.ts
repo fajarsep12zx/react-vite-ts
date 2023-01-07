@@ -8,8 +8,8 @@ import { authMiddleWare, expiredTokenMiddleware } from './middleware'
 const cache = new InMemoryCache()
 
 export const graphqlDefaultOptions = {
-  pollInterval: 1000 * 60 * 30, // 30 Minutes
   notifyOnNetworkStatusChange: true,
+  pollInterval: 1000 * 60 * 30, // 30 Minutes
 }
 
 const queryHttpLinkFMS = new HttpLink({
@@ -27,8 +27,8 @@ const splittedHTTPLinks = split(
 )
 
 export const client = new ApolloClient({
-  link: from([expiredTokenMiddleware, authMiddleWare, splittedHTTPLinks]),
   cache,
+  link: from([expiredTokenMiddleware, authMiddleWare, splittedHTTPLinks]),
 })
 
 export const clientUpload = new ApolloClient({

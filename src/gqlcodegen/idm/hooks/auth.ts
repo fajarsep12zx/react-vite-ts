@@ -11,9 +11,9 @@ export type ListSsoLinkQuery = {
 }
 
 export type ListGroupQueryVariables = Types.Exact<{
+  limit: Types.Scalars['Int']
   page: Types.Scalars['Int']
   searchParam: Types.SearchField
-  limit: Types.Scalars['Int']
 }>
 
 export type ListGroupQuery = {
@@ -34,9 +34,9 @@ export type ListGroupQuery = {
 }
 
 export type ListUserQueryVariables = Types.Exact<{
+  limit: Types.Scalars['Int']
   page: Types.Scalars['Int']
   searchParam: Types.SearchField
-  limit: Types.Scalars['Int']
 }>
 
 export type ListUserQuery = {
@@ -53,10 +53,10 @@ export type ListUserQuery = {
 }
 
 export type ListOrganizationQueryVariables = Types.Exact<{
+  isChild: Types.Scalars['Boolean']
+  limit: Types.Scalars['Int']
   page: Types.Scalars['Int']
   searchParam: Types.SearchField
-  limit: Types.Scalars['Int']
-  isChild: Types.Scalars['Boolean']
 }>
 
 export type ListOrganizationQuery = {

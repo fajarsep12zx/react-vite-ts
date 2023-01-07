@@ -20,40 +20,40 @@ export default ({ mode }: any) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) }
 
   const pwaOptions: Partial<VitePWAOptions> = {
-    mode,
     base: '/',
     devOptions: {
       enabled: process.env.VITE_SW_DEV === 'true',
-      type: 'module',
       navigateFallback: 'index.html',
+      type: 'module',
     },
     manifest: {
-      name: 'PWA Router',
-      short_name: 'PWA Router',
-      theme_color: '#ffffff',
       icons: [
         {
-          src: '/manifest/icon-192x192.png',
           sizes: '192x192',
+          src: '/manifest/icon-192x192.png',
           type: 'image/png',
         },
         {
-          src: '/manifest/icon-256x256.png',
           sizes: '256x256',
+          src: '/manifest/icon-256x256.png',
           type: 'image/png',
         },
         {
-          src: '/manifest/icon-384x384.png',
           sizes: '384x384',
+          src: '/manifest/icon-384x384.png',
           type: 'image/png',
         },
         {
-          src: '/manifest/icon-512x512.png',
           sizes: '512x512',
+          src: '/manifest/icon-512x512.png',
           type: 'image/png',
         },
       ],
+      name: 'PWA Router',
+      short_name: 'PWA Router',
+      theme_color: '#ffffff',
     },
+    mode,
   }
 
   const replaceOptions = { __DATE__: new Date().toISOString() }
@@ -77,7 +77,6 @@ export default ({ mode }: any) => {
 
   return defineConfig({
     build: {
-      sourcemap: process.env.SOURCE_MAP === 'true',
       rollupOptions: {
         output: {
           manualChunks: {
@@ -86,6 +85,7 @@ export default ({ mode }: any) => {
           },
         },
       },
+      sourcemap: process.env.SOURCE_MAP === 'true',
     },
     plugins: [
       react(),

@@ -36,44 +36,37 @@ const theme = createTheme({
     },
   },
   palette: {
-    common: {
-      black: colors.Black,
-      white: colors.White,
-    },
-    primary: {
-      main: colors.DarkNavy,
-      contrastText: colors.White,
-    },
-    secondary: {
-      main: colors.HavelockBlue,
-      contrastText: colors.White,
-    },
-    error: {
-      main: colors.TorchRed,
-      contrastText: colors.White,
-    },
-    text: {
-      primary: colors.Black,
-      secondary: colors.RiverBed,
+    action: {
       disabled: colors.DustyGrey,
     },
     background: {
       default: colors.White,
     },
-    action: {
-      disabled: colors.DustyGrey,
+    common: {
+      black: colors.Black,
+      white: colors.White,
+    },
+    error: {
+      contrastText: colors.White,
+      main: colors.TorchRed,
     },
     info: {
       main: colors.PaleBlue,
     },
-  },
-  typography: {
-    htmlFontSize: 10,
-    fontSize: 10,
-    fontFamily: 'Inter, sans-serif',
-    fontWeightRegular: 400,
-    fontWeightMedium: 500,
-    fontWeightBold: 700,
+    primary: {
+      contrastText: colors.White,
+      main: colors.DarkNavy,
+    },
+    secondary: {
+      contrastText: colors.White,
+      main: colors.HavelockBlue,
+    },
+
+    text: {
+      disabled: colors.DustyGrey,
+      primary: colors.Black,
+      secondary: colors.RiverBed,
+    },
   },
   // Set baseline width to 1920
   spacing: (factor) =>
@@ -93,6 +86,14 @@ const theme = createTheme({
       '5vw', // 96
       '6.25vw', // 120p
     ][factor],
+  typography: {
+    fontFamily: 'Inter, sans-serif',
+    fontSize: 10,
+    fontWeightBold: 700,
+    fontWeightMedium: 500,
+    fontWeightRegular: 400,
+    htmlFontSize: 10,
+  },
 })
 
 export default responsiveFontSizes(theme)
