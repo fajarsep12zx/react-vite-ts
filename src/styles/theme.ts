@@ -70,7 +70,8 @@ const theme = createTheme({
     },
     text: {
       disabled: colors.neutral[100],
-      primary: colors.neutral[900],
+      primary: colors.neutral[800],
+      secondary: colors.neutral[200],
     },
   },
   // Set baseline width to 1920

@@ -12,15 +12,8 @@ const style = makeStyles()((theme) => ({
     height: '100%',
     maxWidth: '100%',
   },
-  container: {
-    backgroundColor: colors.White,
-    display: 'flex',
-    height: '100%',
-    position: 'relative',
-    textAlign: 'center',
-  },
   errorMessage: {
-    color: colors.AlizarinCrimson,
+    color: theme.palette.error.main,
     fontSize: fontSize[20],
     marginBottom: theme.spacing(3),
     marginTop: theme.spacing(3),
@@ -28,14 +21,6 @@ const style = makeStyles()((theme) => ({
   errorTitle: {
     fontWeight: theme.typography.fontWeightBold,
     marginRight: theme.spacing(1),
-  },
-  formContainer: {
-    alignItems: 'center',
-    display: 'flex',
-    flexBasis: '100%',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    minWidth: '20%',
   },
   formSection: {
     '& > div:not(:last-child)': {
@@ -45,32 +30,24 @@ const style = makeStyles()((theme) => ({
     flexDirection: 'column',
     marginTop: theme.spacing(3),
   },
-  iconStyle: {
-    color: colors.DodgerBlue2,
-    marginRight: theme.spacing(2),
-  },
-  logo: {
-    width: '10.417vw',
-  },
   resetPass: {
-    color: colors.DodgerBlue2,
+    color: colors.blue[400],
     marginLeft: theme.spacing(2),
+    textDecoration: 'none',
   },
   subTitle: {
-    color: colors.Nobel,
+    color: theme.palette.text.secondary,
     fontSize: fontSize[16],
     fontWeight: theme.typography.fontWeightRegular,
     marginBottom: theme.spacing(7),
   },
   title: {
-    color: colors.Charcoal,
     fontSize: fontSize[20],
-    fontWeight: 600,
+    fontWeight: theme.typography.fontWeightBold,
     marginBottom: theme.spacing(3),
   },
-
   whiteCardBox: {
-    backgroundColor: colors.White,
+    backgroundColor: theme.palette.common.white,
     borderRadius: '8px',
     boxShadow: '1px 2px 8px 0px #D7E1F6',
     padding: theme.spacing(6),

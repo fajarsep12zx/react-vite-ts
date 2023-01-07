@@ -6,6 +6,7 @@ import Box from '@mui/material/Box'
 import { Formik, Form, Field } from 'formik'
 
 import CustomTextField from '~/components/Form/CustomTextField'
+import { idmHost } from '~/config'
 
 import useCustom from './hooks'
 import loginSchema from './schema'
@@ -80,10 +81,16 @@ const Login = () => {
                       placeholder="Enter your password"
                       type="password"
                     />
+
+                    <Box display="flex" justifyContent="right">
+                      <a className={classes.resetPass} href={`${idmHost}/forget-password`}>
+                        Forgot Password?
+                      </a>
+                    </Box>
                     <LoadingButton
                       fullWidth
                       sx={{
-                        mt: 10,
+                        mt: 5,
                       }}
                       color="primary"
                       data-testid="btn-submit-login"
