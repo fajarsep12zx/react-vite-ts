@@ -54,10 +54,11 @@ const useAuth = () => {
 
   const isPermissionGranted = useCallback(
     (permission) => {
+      console.log(userData?.userAccess?.permission)
+
       if (permission === 'ALL') return true
 
       const permissions = userData?.userAccess?.permission
-
       return permissions?.includes(permission) || false
     },
     [userData],

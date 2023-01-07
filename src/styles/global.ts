@@ -1,3 +1,4 @@
+/* eslint-disable sort-keys */
 import { css } from '@emotion/react'
 
 import { colors } from './colors'
@@ -28,6 +29,12 @@ const globalCss = css({
   'html, body': {
     margin: 0,
     padding: 0,
+  },
+  'hide-on-mobile': {
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+      'content-visibility': 'none',
+    },
   },
 })
 

@@ -5,13 +5,14 @@ import Box from '@mui/material/Box'
 
 import NotFound from '~/components/Error/NotFound'
 import Loading from '~/components/Loading'
-import Sidebar from '~/components/Sidebar'
 import routes from '~/routes'
+
+import Sidebar from '../Sidebar'
 
 const ProtectedLayout = () => {
   return (
     <Box display="flex">
-      <Sidebar routes={routes} />
+      <Sidebar />
       <Suspense fallback={<Loading loading height="100%" />}>
         <Routes>
           {routes.map((route) => (

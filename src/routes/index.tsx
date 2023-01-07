@@ -1,6 +1,8 @@
 // import loadable from '@loadable/component'
 import { ReactSVG } from 'react-svg'
 
+import { PERMISSIONS } from '~/config/constants'
+
 // const DevicesPage = loadable(() => import('~/pages/Devices'))
 // const Trip = loadable(() => import('~/pages/Trip'))
 // const Maps = loadable(() => import('~/pages/Map'))
@@ -15,6 +17,7 @@ export default [
     icon: <ReactSVG src="/icons/menu-icon/map.svg" />,
     id: 'map',
     path: '/map',
+    permission: PERMISSIONS.ALL,
     title: 'Live Track',
     withHeader: true,
   },
@@ -25,37 +28,8 @@ export default [
     icon: <ReactSVG src="/icons/menu-icon/playback.svg" />,
     id: 'playback',
     path: '/playback/:tab',
+    permission: PERMISSIONS.ALL,
     title: 'Play Back',
-    withHeader: true,
-  },
-  {
-    component: <span>Live Track</span>,
-    defaultPath: '/devices',
-    exact: false,
-    icon: <ReactSVG src="/icons/menu-icon/devices.svg" />,
-    id: 'devices',
-    path: '/devices',
-    title: 'Devices',
-    withHeader: true,
-  },
-  {
-    component: <span>Live Track</span>,
-    defaultPath: '/assets',
-    exact: false,
-    icon: <ReactSVG src="/icons/menu-icon/assets.svg" />,
-    id: 'assets',
-    path: '/assets',
-    title: 'Assets',
-    withHeader: true,
-  },
-  {
-    component: <span>Live Track</span>,
-    defaultPath: '/groups',
-    exact: false,
-    icon: <ReactSVG src="/icons/menu-icon/groups.svg" />,
-    id: 'groups',
-    path: '/groups',
-    title: 'Groups',
     withHeader: true,
   },
 ]
