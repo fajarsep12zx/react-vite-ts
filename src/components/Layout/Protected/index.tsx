@@ -1,6 +1,7 @@
-import Box from '@mui/material/Box'
 import { memo, Suspense } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
+
+import Box from '@mui/material/Box'
 
 import NotFound from '~/components/Error/NotFound'
 import Loading from '~/components/Loading'

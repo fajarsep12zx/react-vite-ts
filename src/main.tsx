@@ -17,9 +17,6 @@ import globalCss from './styles/global'
 import theme from './styles/theme'
 import { AuthProvider } from './utils/auth/AuthProvider'
 
-// styles
-import './index.css'
-
 dayjs.extend(utc)
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
