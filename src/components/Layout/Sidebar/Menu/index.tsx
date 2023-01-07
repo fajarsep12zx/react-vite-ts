@@ -1,6 +1,6 @@
 import { memo } from 'react'
 
-import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material'
+import { List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
 import classnames from 'classnames'
 
 import useScreenMobile from '~/utils/hooks/useScreenMobile'
@@ -37,7 +37,7 @@ const MenuSidebar = ({
           if (!permitted) return null
 
           return (
-            <ListItem
+            <ListItemButton
               className={classnames(classes.listItem, {
                 [classes.activeItem]: currentPath === path || firstPath === id,
               })}
@@ -58,10 +58,10 @@ const MenuSidebar = ({
                     [classes.itemTextSm]: title.length >= 20,
                   })}
                 >
-                  {title} Asu
+                  {title}
                 </div>
               </ListItemText>
-            </ListItem>
+            </ListItemButton>
           )
         })}
       </List>

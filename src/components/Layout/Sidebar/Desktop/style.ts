@@ -8,6 +8,11 @@ interface IProps {
 
 const drawerWidth = 220
 const closedDrawerWidth = 60
+const transition = (theme) =>
+  theme.transitions.create('width', {
+    duration: theme.transitions.duration.enteringScreen,
+    easing: theme.transitions.easing.sharp,
+  })
 
 const style = makeStyles<IProps>()((theme, { open }) => ({
   activeItem: {
@@ -21,10 +26,7 @@ const style = makeStyles<IProps>()((theme, { open }) => ({
         boxSizing: 'border-box',
         flexShrink: 0,
         overflowX: 'hidden',
-        transition: theme.transitions.create('width', {
-          duration: theme.transitions.duration.enteringScreen,
-          easing: theme.transitions.easing.sharp,
-        }),
+        transition: transition(theme),
         whiteSpace: 'nowrap',
         width: drawerWidth,
       }
@@ -32,10 +34,7 @@ const style = makeStyles<IProps>()((theme, { open }) => ({
         boxSizing: 'border-box',
         flexShrink: 0,
         overflowX: 'hidden',
-        transition: theme.transitions.create('width', {
-          duration: theme.transitions.duration.leavingScreen,
-          easing: theme.transitions.easing.sharp,
-        }),
+        transition: transition(theme),
         whiteSpace: 'nowrap',
         width: closedDrawerWidth,
       },

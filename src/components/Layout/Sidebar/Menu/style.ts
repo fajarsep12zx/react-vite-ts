@@ -16,15 +16,15 @@ const style = makeStyles<IProps>()((theme, { open }) => ({
     justifyContent: 'center',
   },
   drawerBody: {
+    overflowX: 'hidden',
+    overflowY: 'auto',
     padding: theme.spacing(0, 1),
     [theme.breakpoints.down('sm')]: {
       height: '65vh',
-      overflowY: 'auto',
       paddingBottom: 10,
     },
     [theme.breakpoints.up('md')]: {
       height: '65vh',
-      overflowY: 'auto',
       marginBottom: 150,
     },
   },

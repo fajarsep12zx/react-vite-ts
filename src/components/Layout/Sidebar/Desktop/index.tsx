@@ -2,7 +2,8 @@ import React, { memo } from 'react'
 
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft'
 import { Box, Drawer, IconButton } from '@mui/material'
-import { ReactSVG } from 'react-svg'
+
+import { colors } from '~/styles/colors'
 
 import useStyles from './style'
 
@@ -25,7 +26,10 @@ const DesktopSidebar = ({ children, handleDrawer, open }: Props) => {
       >
         <div className={classes.drawerHead}>
           <Box hidden={!open}>
-            <ReactSVG className={classes.logo} src="/public/brands/logo-fleeto-white.svg" />
+            {/* <ReactSVG className={classes.logo} src="/public/brands/logo-fleeto-white.svg" /> */}
+            <Box color={colors.White} px={5}>
+              LOGO
+            </Box>
           </Box>
           <IconButton className={classes.expandButton} onClick={handleDrawer}>
             {open ? (
