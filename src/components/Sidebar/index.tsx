@@ -33,7 +33,7 @@ const Sidebar = ({ routes }: Props) => {
     >
       <div className={classes.drawerHead}>
         <Box style={{ display: data.open ? 'block' : 'none' }}>
-          <img className={classes.logo} src="/public/images/sidebar_logo.png" alt="landing" />
+          <img className={classes.logo} src="/images/sidebar_logo.png" alt="landing" />
         </Box>
         <IconButton className={classes.expandButton} onClick={methods.handleDrawer}>
           {data.open ? (
