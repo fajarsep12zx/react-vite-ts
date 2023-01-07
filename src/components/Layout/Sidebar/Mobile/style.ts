@@ -1,10 +1,8 @@
 import { makeStyles } from 'tss-react/mui'
 
-import { colors } from '~/styles/theme'
-
-const style = makeStyles()(() => ({
+const style = makeStyles()((theme) => ({
   drawerPaper: {
-    backgroundColor: colors.GulfBlue,
+    backgroundColor: theme.palette.secondary.main,
     width: 250,
   },
 }))

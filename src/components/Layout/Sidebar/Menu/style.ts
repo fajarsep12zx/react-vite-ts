@@ -10,7 +10,7 @@ const closedDrawerWidth = 60
 
 const style = makeStyles<IProps>()((theme, { open }) => ({
   activeItem: {
-    backgroundColor: colors.Denim2,
+    backgroundColor: colors.blue[60],
     borderRadius: '6px',
     color: colors.White,
     justifyContent: 'center',

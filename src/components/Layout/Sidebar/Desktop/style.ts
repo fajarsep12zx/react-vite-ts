@@ -1,6 +1,6 @@
 import { makeStyles } from 'tss-react/mui'
 
-import { colors, fontSize } from '~/styles/theme'
+import { colors } from '~/styles/theme'
 
 interface IProps {
   open: boolean
@@ -15,12 +15,6 @@ const transition = (theme) =>
   })
 
 const style = makeStyles<IProps>()((theme, { open }) => ({
-  activeItem: {
-    backgroundColor: colors.Denim2,
-    borderRadius: '6px',
-    color: colors.White,
-    justifyContent: 'center',
-  },
   drawer: open
     ? {
         boxSizing: 'border-box',
@@ -38,13 +32,6 @@ const style = makeStyles<IProps>()((theme, { open }) => ({
         whiteSpace: 'nowrap',
         width: closedDrawerWidth,
       },
-  drawerFoot: {
-    alignItems: 'center',
-    bottom: 0,
-    justifyContent: open ? 'flex-start' : 'center',
-    position: 'fixed',
-    width: open ? drawerWidth : closedDrawerWidth,
-  },
   drawerHead: {
     // ...theme.mixins.toolbar,
     alignItems: 'center',
@@ -55,7 +42,7 @@ const style = makeStyles<IProps>()((theme, { open }) => ({
   },
   drawerPaper: open
     ? {
-        backgroundColor: colors.GulfBlue,
+        backgroundColor: theme.palette.secondary.main,
         overflowX: 'hidden',
         transition: theme.transitions.create('width', {
           duration: theme.transitions.duration.enteringScreen,
@@ -64,7 +51,7 @@ const style = makeStyles<IProps>()((theme, { open }) => ({
         width: drawerWidth,
       }
     : {
-        backgroundColor: colors.GulfBlue,
+        backgroundColor: theme.palette.secondary.main,
         overflowX: 'hidden',
         transition: theme.transitions.create('width', {
           duration: theme.transitions.duration.leavingScreen,
@@ -73,45 +60,12 @@ const style = makeStyles<IProps>()((theme, { open }) => ({
         width: closedDrawerWidth,
       },
   expandButton: {
-    background: '#193B79',
+    background: colors.blue[150],
     borderRadius: '24px',
+    color: theme.palette.common.white,
   },
   iconClose: {
     transform: 'rotate(180deg)',
-  },
-  iconStyle: {
-    color: colors.PigeonPost,
-  },
-  itemText: {
-    fontSize: fontSize[16],
-  },
-  listItem: {
-    '&:hover': {
-      backgroundColor: colors.Denim2,
-      borderRadius: '6px',
-      color: colors.White,
-      justifyContent: 'center',
-    },
-    color: colors.PigeonPost,
-    justifyContent: open ? 'initial' : 'center',
-    marginBottom: theme.spacing(1),
-    marginLeft: open ? theme.spacing(2) : theme.spacing(2),
-    marginRight: open ? theme.spacing(2) : theme.spacing(2),
-    maxWidth: open ? '90%' : '80%',
-    minHeight: 48,
-    padding: 0,
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2),
-  },
-  listItemIcon: {
-    color: 'inherit',
-    justifyContent: 'center',
-    marginRight: open ? theme.spacing(2) : 0,
-    minWidth: 0,
-  },
-  listItemText: {
-    display: open ? 'block' : 'none',
-    fontSize: fontSize[16],
   },
   logo: {
     height: '1.6vw',

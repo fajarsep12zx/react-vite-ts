@@ -31,7 +31,7 @@ const MobileSidebar = ({ children, open, handleClickToggle }: Props) => {
         open={open}
         onClose={handleClickToggle}
       >
-        <Box alignItems="center" display="flex">
+        <Box alignItems="center" display="flex" px={10}>
           <Box color={colors.White} flexGrow={1} fontSize={fontSize[18]} fontWeight="bold" ml={3}>
             Menu
           </Box>
@@ -41,7 +41,7 @@ const MobileSidebar = ({ children, open, handleClickToggle }: Props) => {
             </Box>
           </IconButton>
         </Box>
-        <Box>{children}</Box>
+        <Box px={5}>{children}</Box>
       </Drawer>
     </>
   )

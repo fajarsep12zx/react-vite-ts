@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
 
-import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft'
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight'
 import { Box, Drawer, IconButton } from '@mui/material'
 
 import { colors } from '~/styles/colors'
@@ -33,9 +33,9 @@ const DesktopSidebar = ({ children, handleDrawer, open }: Props) => {
           </Box>
           <IconButton className={classes.expandButton} onClick={handleDrawer}>
             {open ? (
-              <KeyboardDoubleArrowLeftIcon className={classes.iconClose} />
+              <KeyboardDoubleArrowRightIcon className={classes.iconClose} />
             ) : (
-              <KeyboardDoubleArrowLeftIcon />
+              <KeyboardDoubleArrowRightIcon />
             )}
           </IconButton>
         </div>
