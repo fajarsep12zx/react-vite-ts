@@ -2,12 +2,12 @@ import { makeStyles } from 'tss-react/mui'
 
 import { colors } from '~/styles/theme'
 
+import { drawerWidth, closedDrawerWidth } from '../helper'
+
 interface IProps {
   open: boolean
 }
 
-const drawerWidth = 220
-const closedDrawerWidth = 60
 const transition = (theme) =>
   theme.transitions.create('width', {
     duration: theme.transitions.duration.enteringScreen,

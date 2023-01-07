@@ -2,11 +2,11 @@ import { makeStyles } from 'tss-react/mui'
 
 import { colors, fontSize } from '~/styles/theme'
 
+import { drawerWidth, closedDrawerWidth } from '../helper'
+
 interface IProps {
   open: boolean
 }
-const drawerWidth = 220
-const closedDrawerWidth = 60
 
 const style = makeStyles<IProps>()((theme, { open }) => ({
   activeItem: {
@@ -16,17 +16,7 @@ const style = makeStyles<IProps>()((theme, { open }) => ({
     justifyContent: 'center',
   },
   drawerBody: {
-    overflowX: 'hidden',
-    overflowY: 'auto',
-    padding: theme.spacing(0, 1),
-    [theme.breakpoints.down('sm')]: {
-      height: '65vh',
-      paddingBottom: 10,
-    },
-    [theme.breakpoints.up('md')]: {
-      height: '65vh',
-      marginBottom: 150,
-    },
+    padding: theme.spacing(0, 3),
   },
   drawerFoot: {
     alignItems: 'center',
@@ -35,6 +25,11 @@ const style = makeStyles<IProps>()((theme, { open }) => ({
     padding: theme.spacing(0, 1),
     position: 'fixed',
     width: open ? drawerWidth : closedDrawerWidth,
+  },
+  drawerWrapper: {
+    overflowX: 'hidden',
+    overflowY: 'auto',
+    height: '65vh',
   },
   itemText: {
     fontSize: fontSize[16],
@@ -66,6 +61,11 @@ const style = makeStyles<IProps>()((theme, { open }) => ({
   listItemText: {
     display: open ? 'block' : 'none',
     fontSize: fontSize[16],
+  },
+  listSubHeader: {
+    color: colors.neutral[100],
+    fontSize: fontSize[12],
+    marginBottom: theme.spacing(4),
   },
 }))
 
